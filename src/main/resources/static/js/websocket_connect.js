@@ -42,8 +42,14 @@ function connectWS(userRole) {
             case "/topic/patient/notification":
                 break;
             default:
-                return;
+                break;
         }
+
+        // Luồng riêng cho Interceptor
+        stompClient.subscribe("/topic/interceptor", (res) => {
+            console.log("Dữ liệu từ Interceptor:", JSON.parse(res.body));
+            // render UI nếu muốn
+        });
 
         //** Sau khi client ket noi thanh cong thi gui thong tin truy cap vao he thong ve cho server the route cua super-admin quan ly dang nhap cua account
         const params = new URLSearchParams(window.location.search);
@@ -80,6 +86,7 @@ connectWS(userRoleFormated)
 
 function accountStatus(res) {
     const log = JSON.parse(res.body)
+    console.log(log);
     const superTagLogAlert = $("#super-admin-mainpage-log-alerts")
     setTimeout(() => {
         switch (log.type) {
@@ -123,11 +130,11 @@ function handleFormRegister(stomp) {
             data: JSON.stringify(data),
             success: function (res) {
                 $errorDiv.empty();
-                const message = {email : res.email}
+                const message = {email: res.email}
                 stomp.send("/app/super-admin/upstream/notifications/register", {}, JSON.stringify(message));
                 setTimeout(() => {
                     window.location.href = "/auth/login"
-                },100)
+                }, 100)
             },
             error: function (xhr) {
                 if (xhr.responseJSON.success === false) {

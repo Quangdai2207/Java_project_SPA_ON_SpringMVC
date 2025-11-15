@@ -40,6 +40,5 @@ public class InterceptorConfiguration implements WebMvcConfigurer {
                         "/auth/login/**",
                         "/auth/register/**", "/error"
                 );
-        ;
     }
 }

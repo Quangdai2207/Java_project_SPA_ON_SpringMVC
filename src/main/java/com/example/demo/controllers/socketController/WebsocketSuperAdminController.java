@@ -107,6 +107,15 @@ public class WebsocketSuperAdminController {
         return res;
     }
 
+    @SendTo("/topic/interceptor") // ** Luong DownnStream phan hoi cho topic super admin
+    public Map<String, Object> interceptor(Map<String, Object> message) {
+        return new HashMap<>() {
+            {
+                put("interceptor", message );
+            }
+        };
+    }
+
     //** Nhận va phan hoi thông bao Logout thành công từ người dùng
     @MessageMapping("/super-admin/upstream/notifications/logout") // ** Luong upstream danh cho super admin => /app/super-admin
     @SendTo("/topic/super-admin/notification") // ** Luong DownnStream phan hoi cho topic super-admin

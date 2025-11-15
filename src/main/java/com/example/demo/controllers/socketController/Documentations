@@ -1,0 +1,92 @@
+TÀI LIỆU HƯỚNG DẪN SOCKET CONTROLLERS:
+
+I. MỤC ĐÍCH
+    Socket controller là nơi thực thi và thông báo các hành vi từ người dùng khi truy cập vào ứng dụng website.
+    Giúp cho người dùng và người quản trị viên dễ dàng quản nắm bắt các hoạt động đang diễn ra trên ứng dụng web.
+    Các hành vi từ người dùng có thể được thống báo bằng thời gian thực thông qua Websocet như:
+        1. Đăng nhập, đăng xuất
+        2. Các hành vi cập nhật, CRUD trên ứng dụng
+        3. và các hành vi khác có thể thực hiện theo dõi một cách trực tiếp
+
+II. LUỒNG VÀ CÁCH THỨC HOẠT ĐỘNG
+    1. Socket là ứng dụng dùng để gửi và nhận phản hồi dữ liệu theo thời gian thực tại thời điểm sự kiện cụ thể được diễn
+       ra.
+
+    2. Giống như giao thức truy cập ứng dụng web, người ta quy định bằng 2 thuật ngữ Request và Response. trong đó:
+            a. Request là yêu cầu từ Client                             => Đây là luồng Upstream
+            b. Response là phản hồi từ Server khi nhận được request     => Đây là luồng Downstream
+
+            =>> Như vậy, Request và Response là cách gọi trong việc gửi và nhận dữ liệu cho ứng dụng web thông thường với
+                các loại giao thức phổ biến như GET, PUT, POST, PATH, DELETE. cả Request và Response đều phải thực hiện
+                theo tiêu chuẩn của các giao thức này để truy xuất dữ liệu
+
+    3. Trong websocket, ta cũng có thể gọi là Reqquest - Response, nhưng để phân biệt và hiểu đúng về vai trò của websocket
+       thì ta dùng Downstream và Upstream. Trong đó:
+
+            a. Upstream là luống dữ liệu được phát tín hiệu từ phía Client cho mọi hành động
+            b. Downstream là luồng dữ liệu phản hồi từ Server sau khi nhận được dữ liệu từ Upstream
+
+       Trong ngữ cảnh của Java Spring Framework, Downstream và Upstream được quy định bằng 2 phương thức chính giúp Client
+       và Server tương tác trực tiếp với nhau. Trong đó:
+
+            a. Đứng tại phía Server là Java Spring, 2 phương thức chính giúp NHẬN và PHẢN HỒI dữ liệu từ Client như:
+
+                    + @MessageMapping("/route-upstream") Đây là luồng Upstream giúp server nhận được dữ liệu từ Client
+                    + @SendTo("/route-downstream") Đây là luồng Downstream phản hổi dữ liệu khi nhận được từ Upstram
+
+            b. Đứng tại Client với javascript, 2 phương thức để GỬI và NHẬN PHẢN HỒI từ Server như:
+
+                    + send("/route-upstream") Đây là luồng upstream gửi dữ liệu từ Client đến server.
+                    + subscribe("/route-downstream") Là luồng nhận dữ liệu từ Server phản hồi.
+
+    4. Vì Socket là ứng dụng giúp ghi nhận lại toàn bộ sự kiện diễn ra tại thời điểm cụ thể trong thời gian thực nên
+       khi reload thì toàn bộ dữ liệu đó sẽ mất đi. Nếu muốn các thông báo sự kiện còn duy trì đến khi người đọc thực
+       thao tác đọc hoặc xoá thì Server cần phải thực hiện lưu toàn bộ dữ liệu vào DB sau khi nhận dữ liệu từ Client
+       trước khi reload trang.
+
+       Để websocket có thể thực hiện hiệu quả trên ứng dụng web Server MVC, tốt nhất nên dùng AJAX để xử lý các sự kiện
+       và gửi dữ liệu trực tiếp cho Server mà không cần phải reload trang. Đơi với các ứng dụng React hay Vue hay Next
+       thì việc tương tác Soket giữa Client và Server sẽ hoạt động dễ dàng hơn so với các ứng dụng Web MVC truyền thống.
+
+
+II. CÁC VAI TRÒ
+    Cũng giống như phân quyền người dùng trong việc truy cập và sử dụng các tính năng trên ứng dụng web. Websocket
+    có thể áp dụng cho việc gửi và nhận thông báo trực tiếp cho từng ROLE cụ thể. Như:
+
+    1. Super admin:
+        Super admin là người quản trị hệ thống cấp nhất trong ứng dụng web, người chịu trách nhiệm xử lý các sự cố
+        liên quan đến hệ thống ứng dụng đang vận hành.
+
+        Tất cả các hành vi từ người dùng đều được giám sát và theo dõi bởi supẻ-admin thông qua thời gian thực đang
+        diễn ra trên hệ thống.
+
+        Với Super-admin, 2 routes Downstream và Upstream hỗ trợ nhận và phản hồi dữ liệu realtime:
+            a. Luồng Downstream với route => /topic/super-admin/notification
+            b. Luồng Upstream với route   => /app/super-admin/notification/login
+
+            Ví dụ:
+                Đứng tại phía server:
+                @MessageMapping("/super-admin/notification/login") => NHận toàn bộ dữ liệu login từ người dùng
+                @SendTo("/topic/super-admin/notification")         => Gửi phản hổi cho luồng upstream
+
+                @MessageMapping("/super-admin/notification/register") => NHận toàn bộ dữ liệu Đăng ký từ người dùng
+                @SendTo("/topic/super-admin/notification")         => Gửi phản hổi cho luồng upstream
+
+                Đứng tại phía clicent:
+                // Nhận dữ liệu từ server
+                stompClient.connect({}, function(frame) {
+                    ...
+                    stompClient.subscribe("/topic/super-admin/notification", function(res) {
+                        console.log(res);
+                        const res = JSON.parse(res);
+                    })
+                });
+
+                // Gửi dữ liệu từ Client về server khi fetch API register
+                if (res.status == 200 && res.data.email !== null) {
+                    const message = {
+                        email: email,
+                        content: "Dang ky thanh cong"
+                    }
+                    stompClient.send("/app/super-admin/notification/register", message);
+                }
