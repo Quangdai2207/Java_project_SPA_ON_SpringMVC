@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      th:fragment="content(title, pages)">
+<head>
+    <meta charset="UTF-8">
+    <meta id="meta-role" name="role" th:content="${#authentication.authorities[0].authority}"/>
+    <meta id="meta-email" name="email" th:content="${#authentication.name}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/stompjs@2.3.3/lib/stomp.min.js"></script>
+    <title th:text="${title}">Web App</title>
+
+</head>
+
+<body class="min-h-screen flex flex-col bg-gray-50 text-gray-800 dark:bg-gray-950 dark:text-gray-200 transition-colors duration-300">
+
+<!-- ** ===== HEADER ===== ** -->
+<header class="bg-white dark:bg-gray-900 shadow-sm sticky top-0 z-50 border-b border-gray-200 dark:border-gray-700 transition-colors duration-300">
+    <div class="container mx-auto flex items-center justify-between px-6 py-3">
+
+        <!-- Logo -->
+        <a th:href="@{/}"
+           class="text-2xl font-semibold bg-gradient-to-r from-purple-800 to-pink-600 dark:from-indigo-400 dark:to-purple-500 text-transparent bg-clip-text">
+            HealthCare
+        </a>
+
+        <!-- Thanh tìm kiếm -->
+        <div class="hidden md:flex items-center w-1/3">
+            <input type="text"
+                   placeholder="Tìm bác sĩ, khoa hoặc dịch vụ khám..."
+                   class="w-full px-4 py-2 rounded-l-full border border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 outline-none transition">
+            <button class="px-4 py-2 bg-blue-600 text-white rounded-r-full hover:bg-blue-500 transition">
+                🔍
+            </button>
+        </div>
+
+        <!-- Navigation + Icons -->
+        <nav class="flex items-center space-x-6 text-sm font-medium">
+
+            <!-- Menu chính -->
+            <a href="/" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Trang chủ</a>
+            <a href="/bookings" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Đặt lịch</a>
+            <a href="/about" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Giới thiệu</a>
+
+            <!-- Icon thông báo -->
+            <div class="relative cursor-pointer">
+                <span class="text-xl">🔔</span>
+                <span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-red-500 rounded-full"></span>
+            </div>
+
+            <!-- Giỏ lịch khám -->
+            <div class="relative cursor-pointer">
+                <span class="text-xl">🩺</span>
+                <span class="absolute -top-1 -right-1 w-2.5 h-2.5 bg-red-500 rounded-full"></span>
+            </div>
+
+            <!-- 🔹 Khu vực auth -->
+            <div id="auth-buttons" class="flex items-center space-x-4">
+                <!-- 🔹 Nếu CHƯA đăng nhập -->
+                <th:block sec:authorize="!isAuthenticated()">
+                    <a th:href="@{/auth/login}"
+                       class="text-blue-600 dark:text-blue-400 font-semibold hover:underline text-xs">Đăng nhập</a>
+
+                    <a th:href="@{/auth/register}"
+                       class="bg-blue-600 text-white text-xs px-4 py-1 rounded-full hover:bg-blue-500 transition">
+                        Đăng ký
+                    </a>
+                </th:block>
+
+                <!-- 🔹 Nếu ĐÃ đăng nhập -->
+                <th:block sec:authorize="isAuthenticated()">
+                    <div id="user-menu" class="relative group">
+                        <div class="flex items-center space-x-2 cursor-pointer select-none">
+                            <img src="/assets/images/avatar.jpg" alt="user"
+                                 class="w-8 h-8 rounded-full border border-gray-300 dark:border-gray-600">
+                            <span class="dark:text-gray-100 font-medium">
+                                    Hi,
+                                <span class="font-semibold text-xs" sec:authentication="name"></span>
+                            </span>
+                        </div>
+                        <!-- Dropdown menu -->
+                        <div id="layout-dropdown"
+                             class="absolute right-0 top-10 w-52 bg-white dark:bg-gray-800 shadow-lg rounded-xl border
+                             border-gray-200 dark:border-gray-700 opacity-0 invisible transition-all duration-300">
+                            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200 cursor-pointer">
+                                <th:block th:each="role : ${@AccountService.getRoles(#authentication.name)}">
+                                    <!-- PATIENT -->
+                                    <th:block th:if="${role.name == 'ROLE_PATIENT'}">
+                                        <li id="patient-manage"><a href="/patient"
+                                                                   class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Quản
+                                            lý cá nhân</a></li>
+                                        <li id="patient-profile"><a
+                                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Hồ sơ
+                                            cá nhân</a></li>
+                                        <li id="patient-appointment"><a
+                                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Lịch
+                                            khám</a></li>
+                                        <li id="patient-profile-appointment"><a
+                                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Hồ sơ
+                                            bệnh án</a></li>
+                                        <li id="patient-alert"><a
+                                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Thông
+                                            báo</a></li>
+                                        <li>
+                                            <hr class="my-2 border-gray-200 dark:border-gray-600">
+                                        </li>
+                                        <li><a
+                                                id="btn-logout-patient"
+                                                th:attr="data-account=${#authentication.name}"
+                                                th:href="@{/auth/logout}"
+                                                class="block px-4 py-2 text-red-600 dark:text-red-400 hover:bg-gray-100 dark:hover:bg-gray-700">Đăng
+                                            xuất</a></li>
+                                    </th:block>
+                                    <!-- SUPER ADMIN -->
+                                    <th:block th:if="${role.name == 'ROLE_SUPER_ADMIN'}">
+                                        <li><a th:href="@{/super-admin}"
+                                               class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Bảng
+                                            điều khiển</a></li>
+                                        <li id="super-admin-manage-account"><a
+                                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Quản lý
+                                            tài khoản</a></li>
+                                        <li id="super-admin-middleware"><a
+                                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Phân
+                                            quyền hệ thống</a></li>
+                                        <li id="super-admin-log"><a
+                                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Nhật ký
+                                            hệ thống</a></li>
+                                        <li>
+                                            <hr class="my-2 border-gray-200 dark:border-gray-600">
+                                        </li>
+                                        <li><a th:href="@{/auth/logout}" th:attr="data-account=${#authentication.name}"
+                                               id="btn-logout-super-admin"
+                                               class="block px-4 py-2 text-red-600 dark:text-red-400 hover:bg-gray-100 dark:hover:bg-gray-700">Đăng
+                                            xuất</a></li>
+                                    </th:block>
+                                    <!-- ADMIN -->
+                                    <th:block th:if="${role.name == 'ROLE_ADMIN'}">
+                                        <li><a th:href="@{/admin}"
+                                               class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Trang
+                                            quản trị</a></li>
+                                        <li id="admin-manage-doctor"><a
+                                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Quản lý
+                                            bác sĩ</a></li>
+                                        <li id="admin-manage-patient"><a
+                                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Quản lý
+                                            bệnh nhân</a></li>
+                                        <li id="admin-system-report"><a
+                                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Báo cáo
+                                            thống kê</a></li>
+                                        <li>
+                                            <hr class="my-2 border-gray-200 dark:border-gray-600">
+                                        </li>
+                                        <li><a
+                                                id="btn-logout-admin"
+                                                sec:authentication="name"
+                                                th:attr="data-account=${#authentication.name}"
+                                                class="block px-4 py-2 text-red-600 dark:text-red-400 hover:bg-gray-100 dark:hover:bg-gray-700">Đăng
+                                            xuất</a></li>
+                                    </th:block>
+                                    <!-- DOCTOR -->
+                                    <th:block th:if="${role.name == 'ROLE_DOCTOR'}">
+                                        <li><a th:href="@{/doctor}"
+                                               class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Lịch làm
+                                            việc</a></li>
+                                        <li id="doctor-manage-patient"><a
+                                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Bệnh
+                                            nhân của tôi</a></li>
+                                        <li id="doctor-appointment"><a
+                                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Hồ sơ
+                                            bệnh án</a></li>
+                                        <li>
+                                            <hr class="my-2 border-gray-200 dark:border-gray-600">
+                                        </li>
+                                        <li><a th:href="@{/auth/logout}"
+                                               id="btn-logout-doctor"
+                                               th:attr="data-account=${#authentication.name}"
+                                               class="block px-4 py-2 text-red-600 dark:text-red-400 hover:bg-gray-100 dark:hover:bg-gray-700">Đăng
+                                            xuất</a></li>
+                                    </th:block>
+                                </th:block>
+                            </ul>
+                        </div>
+                    </div>
+                </th:block>
+            </div>
+
+            <!-- Nút toggle dark/light -->
+            <button id="theme-toggle"
+                    class="ml-4 px-3 py-1 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition flex items-center">
+                <span class="light-mode-icon">🌞</span>
+                <span class="dark-mode-icon hidden">🌙</span>
+            </button>
+        </nav>
+    </div>
+</header>
+
+<!-- ** ===== MAIN CONTENT ===== ** -->
+<main id="root" class="flex-1 container mx-auto p-6 transition-colors duration-300">
+    <th:block th:replace="${pages}?:_"></th:block>
+    <input id="register-email-redirect" type="hidden" th:value="${email}">
+</main>
+
+<!-- ===== FOOTER ===== -->
+<!-- ===== FOOTER ===== -->
+<footer class="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 transition-colors duration-300">
+    <div class="container mx-auto px-6 py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10">
+
+        <!-- Cột 1: Logo & mô tả -->
+        <div>
+            <h3 class="text-2xl font-bold bg-gradient-to-r from-purple-700 to-pink-500 bg-clip-text text-transparent">
+                HealthCare
+            </h3>
+            <p class="mt-3 text-sm leading-relaxed text-gray-600 dark:text-gray-400">
+                Nền tảng chăm sóc sức khỏe toàn diện, giúp bạn dễ dàng đặt lịch, tra cứu hồ sơ y tế,
+                và kết nối với các chuyên gia hàng đầu.
+            </p>
+
+            <div class="mt-4 flex space-x-3 text-xl">
+                <a href="#" class="hover:text-blue-600 transition">📘</a>
+                <a href="#" class="hover:text-pink-500 transition">📸</a>
+                <a href="#" class="hover:text-sky-500 transition">🐦</a>
+                <a href="#" class="hover:text-red-500 transition">▶️</a>
+            </div>
+        </div>
+
+        <!-- Cột 2: Hệ thống chi nhánh -->
+        <div>
+            <h3 class="text-lg font-semibold mb-4 text-blue-600 dark:text-blue-400">Hệ thống chi nhánh</h3>
+            <ul class="space-y-2 text-sm">
+                <li>🏥 Hà Nội: 123 Phố Huế, Hai Bà Trưng</li>
+                <li>🏥 TP.HCM: 45 Nguyễn Thị Minh Khai, Q.1</li>
+                <li>🏥 Đà Nẵng: 56 Nguyễn Văn Linh, Hải Châu</li>
+                <li>🏥 Cần Thơ: 78 Trần Hưng Đạo, Ninh Kiều</li>
+                <li>🏥 Hải Phòng: 89 Lạch Tray, Ngô Quyền</li>
+            </ul>
+        </div>
+
+        <!-- Cột 3: Dịch vụ nổi bật -->
+        <div>
+            <h3 class="text-lg font-semibold mb-4 text-blue-600 dark:text-blue-400">Dịch vụ nổi bật</h3>
+            <ul class="space-y-2 text-sm">
+                <li><a href="#" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Khám tổng quát</a></li>
+                <li><a href="#" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Xét nghiệm máu</a></li>
+                <li><a href="#" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Chẩn đoán hình ảnh</a>
+                </li>
+                <li><a href="#" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Khám tim mạch</a></li>
+                <li><a href="#" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Khám nhi & sản phụ
+                    khoa</a></li>
+            </ul>
+        </div>
+
+        <!-- Cột 4: Từ khóa & tìm kiếm -->
+        <div>
+            <h3 class="text-lg font-semibold mb-4 text-blue-600 dark:text-blue-400">Từ khóa phổ biến</h3>
+            <div class="flex flex-wrap gap-2 text-xs">
+                <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full hover:bg-blue-100 dark:hover:bg-blue-600 cursor-pointer transition">Bác sĩ giỏi</span>
+                <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full hover:bg-blue-100 dark:hover:bg-blue-600 cursor-pointer transition">Khám sức khỏe</span>
+                <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full hover:bg-blue-100 dark:hover:bg-blue-600 cursor-pointer transition">Tư vấn online</span>
+                <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full hover:bg-blue-100 dark:hover:bg-blue-600 cursor-pointer transition">Bảo hiểm y tế</span>
+                <span class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full hover:bg-blue-100 dark:hover:bg-blue-600 cursor-pointer transition">Khám dinh dưỡng</span>
+            </div>
+
+            <form id="search-footer-form" class="mt-4 flex items-center">
+                <input type="text" placeholder="Tìm bài viết, dịch vụ..."
+                       class="w-full px-3 py-2 rounded-l-md border border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100 focus:ring-2 focus:ring-blue-500 outline-none text-sm transition">
+                <button type="submit"
+                        class="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-r-md hover:from-blue-500 hover:to-purple-500 transition">
+                    🔍
+                </button>
+            </form>
+        </div>
+
+        <!-- Cột 5: Thông tin & liên hệ -->
+        <div>
+            <h3 class="text-lg font-semibold mb-4 text-blue-600 dark:text-blue-400">Liên hệ & hỗ trợ</h3>
+            <ul class="space-y-2 text-sm">
+                <li>📞 Hotline: <span class="font-semibold text-blue-600 dark:text-blue-400">1900 1234</span></li>
+                <li>✉️ Email: support@healthcare.vn</li>
+                <li>⏰ Giờ làm việc: 7h00 - 21h00 (T2 - CN)</li>
+                <li>📍 Văn phòng: 45 Nguyễn Thị Minh Khai, Q.1, TP.HCM</li>
+            </ul>
+
+            <div class="mt-4">
+                <h4 class="font-medium text-sm mb-2">Đăng ký nhận tin mới</h4>
+                <form id="newsletter-form" class="flex items-center">
+                    <input type="email" placeholder="Nhập email của bạn..."
+                           class="w-full px-2 py-2 rounded-l-md border border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-100 focus:ring-2 focus:ring-purple-500 outline-none text-sm transition">
+                    <button type="submit"
+                            class="px-1 py-1 bg-gradient-to-r from-purple-700 to-pink-600 text-white text-xs rounded-r-md hover:from-purple-600 hover:to-pink-500 transition">
+                        Đăng ký
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dòng ngăn -->
+    <div class="border-t border-gray-200 dark:border-gray-700 my-6"></div>
+
+    <!-- Thông tin cuối -->
+    <div class="container mx-auto px-6 pb-6 text-center text-xs text-gray-500 dark:text-gray-400 space-y-2">
+        <p>Công ty Cổ phần Y tế HealthCare Việt Nam | MST: 0312345678 | GPĐKKD: 0123/HCVN</p>
+        <p>© 2025 HealthCare Việt Nam. Bảo lưu mọi quyền. | <a href="#" class="hover:text-blue-500">Chính sách bảo
+            mật</a> | <a href="#" class="hover:text-blue-500">Điều khoản sử dụng</a></p>
+    </div>
+</footer>
+</body>
+<script type="module" th:src="@{/js/main.js}" defer></script>
+<script th:src="@{/js/websocket_connect.js}" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const userMenu = document.querySelector("#user-menu");
+        const dropdown = document.querySelector("#layout-dropdown");
+
+        if (userMenu && dropdown) {
+            // Khi click vào avatar hoặc tên người dùng
+            userMenu.addEventListener("click", (e) => {
+                e.stopPropagation(); // chặn lan ra ngoài
+                dropdown.classList.toggle("opacity-100");
+                dropdown.classList.toggle("visible");
+                dropdown.classList.toggle("opacity-0");
+                dropdown.classList.toggle("invisible");
+            });
+
+            // Khi click ra ngoài thì đóng dropdown
+            document.addEventListener("click", (e) => {
+                if (!userMenu.contains(e.target)) {
+                    dropdown.classList.remove("opacity-100", "visible");
+                    dropdown.classList.add("opacity-0", "invisible");
+                }
+            });
+        }
+    });
+</script>
+
+</html>

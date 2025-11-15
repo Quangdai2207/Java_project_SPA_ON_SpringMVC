@@ -1,0 +1,66 @@
+<section id="portal-doctor-medical-records" class="  bg-gray-900 text-gray-100 p-6 rounded-2xl shadow-lg">
+    <!-- HEADER -->
+    <div class="flex flex-col md:flex-row md:items-center justify-between mb-6 gap-4 text-xs">
+        <h2 class="text-2xl font-bold text-blue-400">Quản lý hồ sơ y tế</h2>
+        <div class="flex flex-wrap gap-3">
+            <input type="text" id="searchRecord" placeholder="🔍 Tìm hồ sơ theo tên, mã, bệnh nhân..."
+                   class="bg-gray-800 px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 w-64">
+            <select id="statusFilter" class="bg-gray-800 px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                <option value="">Tất cả trạng thái</option>
+                <option value="open">Đang điều trị</option>
+                <option value="closed">Đã hoàn tất</option>
+                <option value="follow-up">Tái khám</option>
+            </select>
+            <button class="bg-purple-900 px-4 py-2 rounded-lg hover:bg-purple-950-500 cursor-pointer flex items-center gap-2">
+                <i class="fas fa-file-medical"></i> Hồ sơ mới
+            </button>
+        </div>
+    </div>
+
+    <!-- TABLE -->
+    <div class="overflow-x-auto">
+        <table class="min-w-full text-xs text-left border border-gray-700 rounded-lg overflow-hidden">
+            <thead class="bg-gray-800 text-gray-300 uppercase text-xs">
+            <tr>
+                <th class="px-4 py-3">Mã hồ sơ</th>
+                <th class="px-4 py-3">Bệnh nhân</th>
+                <th class="px-4 py-3">Chẩn đoán</th>
+                <th class="px-4 py-3">Ngày tạo</th>
+                <th class="px-4 py-3">Trạng thái</th>
+                <th class="px-4 py-3">Ghi chú</th>
+                <th class="px-4 py-3 text-center">Hành động</th>
+            </tr>
+            </thead>
+            <tbody id="medicalRecordsBody" class="divide-y divide-gray-800">
+            <!-- Example row -->
+            <tr class="hover:bg-gray-800 transition">
+                <td class="px-4 py-3 font-medium text-blue-400">MR-2025-001</td>
+                <td class="px-4 py-3">Nguyễn Văn A</td>
+                <td class="px-4 py-3">Viêm phổi cấp</td>
+                <td class="px-4 py-3">02/11/2025</td>
+                <td class="px-4 py-3">
+                    <span class="bg-green-700 px-2 py-1 rounded text-xs">Theo </span>
+                </td>
+                <td class="px-4 py-3 text-gray-400 italic">Theo dõi nhiệt độ hàng ngày</td>
+                <td class="px-4 py-3 text-center">
+                    <div class="flex justify-center gap-2">
+                        <button class="bg-blue-600 hover:bg-blue-500 px-2 py-1 rounded text-xs">View</button>
+                        <button class="bg-yellow-600 hover:bg-yellow-500 px-2 py-1 rounded text-xs">Edit</button>
+                        <button class="bg-green-700 hover:bg-green-600 px-2 py-1 rounded text-xs">PDF</button>
+                    </div>
+                </td>
+            </tr>
+            <!-- More rows dynamically added -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="flex justify-between items-center mt-6 text-sm text-gray-400">
+        <p><span id="recordCount">Tổng: 12 hồ sơ</span></p>
+        <div class="flex items-center gap-3">
+            <button class="bg-gray-800 px-3 py-1 rounded hover:bg-gray-700">&lt; Trước</button>
+            <button class="bg-gray-800 px-3 py-1 rounded hover:bg-gray-700">Sau &gt;</button>
+        </div>
+    </div>
+</section>

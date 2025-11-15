@@ -1,0 +1,102 @@
+<section id="section-patient-alert" class="p-10 bg-gray-900 text-gray-100 min-h-screen">
+    <div class="max-w-5xl mx-auto space-y-8">
+        <!-- Header -->
+        <div class="flex items-center justify-between border-b border-gray-700 pb-4">
+            <div class="flex items-center gap-3">
+                <div class="bg-indigo-600 p-2 rounded-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none"
+                         viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M13 16h-1v-4h-1m1-4h.01M21 12A9 9 0 113 12a9 9 0 0118 0z"/>
+                    </svg>
+                </div>
+                <h2 class="text-2xl font-semibold text-indigo-400">Thông báo</h2>
+            </div>
+            <div class="flex items-center gap-3">
+                <button id="btn-mark-all-read"
+                        class="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-xl text-sm text-gray-200 font-medium transition">
+                    Đánh dấu đã đọc
+                </button>
+                <button id="btn-refresh-alerts"
+                        class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 rounded-xl text-sm text-white font-medium transition">
+                    Làm mới
+                </button>
+            </div>
+        </div>
+        <!-- Filter bar -->
+        <div class="flex flex-wrap items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <label for="filter-type" class="text-gray-400 text-sm">Lọc theo loại:</label>
+                <select id="filter-type"
+                        class="bg-gray-800 border border-gray-700 text-sm rounded-lg px-3 py-2 text-gray-200 focus:ring-2 focus:ring-indigo-500">
+                    <option value="all">Tất cả</option>
+                    <option value="appointment">Lịch khám</option>
+                    <option value="result">Kết quả</option>
+                    <option value="system">Hệ thống</option>
+                </select>
+            </div>
+            <input type="text" id="search-alert" placeholder="Tìm kiếm thông báo..."
+                   class="w-full md:w-64 bg-gray-800 border border-gray-700 text-gray-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500">
+        </div>
+        <!-- Notification List -->
+        <div id="patient-alert-list" class="space-y-4">
+            <!-- Notification item -->
+            <div class="p-5 bg-gray-800 rounded-xl border border-gray-700 shadow-md flex items-start justify-between hover:bg-gray-750 transition">
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 bg-indigo-600/20 text-indigo-400 p-2 rounded-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M8 7V3m8 4V3m-9 8h10m-9 4h8m-6 4h4m-7-8a9 9 0 11-9 9 9 9 0 019-9z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-medium text-indigo-300">Lịch khám sắp tới</h3>
+                        <p class="text-gray-400 text-sm mt-1">
+                            Bạn có lịch khám với bác sĩ Nguyễn Văn A vào <span class="text-gray-300 font-semibold">9:00 sáng - 05/11/2025</span>.
+                        </p>
+                        <div class="mt-3 flex items-center gap-3">
+                            <span class="px-3 py-1 bg-green-600/20 text-green-400 rounded-full text-xs font-semibold">Lịch khám</span>
+                            <button class="text-xs px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded-md text-gray-300 font-medium">Xem chi tiết</button>
+                        </div>
+                    </div>
+                </div>
+                <span class="text-sm text-gray-500 whitespace-nowrap">2 giờ trước</span>
+            </div>
+            <!-- Another Notification -->
+            <div class="p-5 bg-gray-800 rounded-xl border border-gray-700 shadow-md flex items-start justify-between hover:bg-gray-750 transition">
+                <div class="flex gap-4">
+                    <div class="flex-shrink-0 bg-yellow-500/20 text-yellow-400 p-2 rounded-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M12 8v4l3 3m6 0A9 9 0 113 12a9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-medium text-yellow-300">Cập nhật kết quả xét nghiệm</h3>
+                        <p class="text-gray-400 text-sm mt-1">
+                            Kết quả xét nghiệm máu của bạn đã sẵn sàng trong mục <span class="text-gray-300 font-semibold">Hồ sơ bệnh án</span>.
+                        </p>
+                        <div class="mt-3 flex items-center gap-3">
+                            <span class="px-3 py-1 bg-yellow-600/20 text-yellow-400 rounded-full text-xs font-semibold">Kết quả</span>
+                            <button class="text-xs px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded-md text-gray-300 font-medium">Xem kết quả</button>
+                        </div>
+                    </div>
+                </div>
+                <span class="text-sm text-gray-500 whitespace-nowrap">Hôm qua</span>
+            </div>
+        </div>
+        <!-- Pagination -->
+        <div class="flex justify-between items-center mt-8 border-t border-gray-700 pt-4 text-sm">
+            <p class="text-gray-500">Hiển thị 1–10 trong 45 thông báo</p>
+            <div class="flex items-center gap-2">
+                <button class="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded-md text-gray-200">Trước</button>
+                <button class="px-3 py-1 bg-indigo-600 hover:bg-indigo-700 rounded-md text-white font-medium">1</button>
+                <button class="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded-md text-gray-200">2</button>
+                <button class="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded-md text-gray-200">3</button>
+                <button class="px-3 py-1 bg-gray-700 hover:bg-gray-600 rounded-md text-gray-200">Sau</button>
+            </div>
+        </div>
+    </div>
+</section>

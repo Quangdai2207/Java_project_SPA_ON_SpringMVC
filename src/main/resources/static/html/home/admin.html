@@ -1,0 +1,78 @@
+<section id="home-admin" class="py-20">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+        <!-- HERO -->
+        <div class="mb-12">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-indigo-700 dark:text-indigo-400 mb-4">
+                Xin chào, Quản trị viên!
+            </h1>
+            <p class="max-w-3xl mx-auto text-gray-600 dark:text-gray-300 text-lg">
+                Chào mừng bạn đến với hệ thống quản lý y tế toàn diện — nơi bạn vừa là
+                <span class="font-semibold text-indigo-600 dark:text-indigo-400">Admin</span>,
+                vừa có thể là
+                <span class="font-semibold text-pink-600 dark:text-pink-400">Bác sĩ</span>,
+                và đồng thời là
+                <span class="font-semibold text-blue-600 dark:text-blue-400">Bệnh nhân</span>.
+            </p>
+        </div>
+
+        <!-- ACTIONS -->
+        <div class="flex flex-wrap justify-center gap-4 mb-16">
+            <a href="/patient"
+               class="px-6 py-3 rounded-xl bg-blue-600 text-white font-semibold hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition">
+                Hồ sơ bệnh nhân của bạn
+            </a>
+            <a href="/doctor"
+               class="px-6 py-3 rounded-xl bg-pink-600 text-white font-semibold hover:bg-pink-700 dark:bg-pink-500 dark:hover:bg-pink-600 transition">
+                Giao diện bác sĩ
+            </a>
+            <a href="/admin"
+               class="px-6 py-3 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-700 dark:bg-indigo-500 dark:hover:bg-indigo-600 transition">
+                Bảng điều khiển quản trị
+            </a>
+        </div>
+
+        <!-- SECTIONS -->
+        <div class="grid gap-8 md:grid-cols-3 text-left">
+            <!-- ADMIN -->
+            <div class="p-6 rounded-2xl bg-white dark:bg-gray-900 shadow hover:shadow-lg transition">
+                <h3 class="text-xl font-semibold mb-3 text-indigo-600 dark:text-indigo-400">📊 Quản trị hệ thống</h3>
+                <ul class="text-gray-600 dark:text-gray-300 space-y-2 list-disc pl-5">
+                    <li>Quản lý người dùng, bác sĩ và bệnh nhân</li>
+                    <li>Phân quyền truy cập và vai trò</li>
+                    <li>Thống kê dữ liệu hoạt động toàn hệ thống</li>
+                    <li>Quản lý bài viết, dịch vụ và danh mục y tế</li>
+                </ul>
+            </div>
+
+            <!-- DOCTOR -->
+            <div class="p-6 rounded-2xl bg-white dark:bg-gray-900 shadow hover:shadow-lg transition">
+                <h3 class="text-xl font-semibold mb-3 text-pink-600 dark:text-pink-400">🩺 Dành cho Bác sĩ</h3>
+                <ul class="text-gray-600 dark:text-gray-300 space-y-2 list-disc pl-5">
+                    <li>Xem và quản lý danh sách bệnh nhân của bạn</li>
+                    <li>Cập nhật lịch khám và hồ sơ chuyên môn</li>
+                    <li>Gửi thông báo, kết quả và toa thuốc điện tử</li>
+                    <li>Theo dõi tiến trình điều trị và phản hồi</li>
+                </ul>
+            </div>
+
+            <!-- PATIENT -->
+            <div class="p-6 rounded-2xl bg-white dark:bg-gray-900 shadow hover:shadow-lg transition">
+                <h3 class="text-xl font-semibold mb-3 text-blue-600 dark:text-blue-400">🧍 Dành cho Bệnh nhân</h3>
+                <ul class="text-gray-600 dark:text-gray-300 space-y-2 list-disc pl-5">
+                    <li>Xem hồ sơ bệnh án và kết quả khám</li>
+                    <li>Đặt lịch khám và theo dõi tình trạng</li>
+                    <li>Tra cứu toa thuốc, lịch sử điều trị</li>
+                    <li>Nhận thông báo từ bác sĩ và phòng khám</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="mt-16">
+            <a href="/admin/dashboard"
+               class="inline-block px-8 py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-pink-600 text-white font-semibold hover:opacity-90 transition">
+                Vào giao diện quản trị ngay
+            </a>
+        </div>
+    </div>
+</section>

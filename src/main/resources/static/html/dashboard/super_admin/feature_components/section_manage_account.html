@@ -1,0 +1,100 @@
+<section id="section-super-admin-manage-accounts" class=" col-span-4 bg-gray-900 rounded-2xl border border-gray-800 p-6 shadow-md">
+    <!-- STATS -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+        <div class="bg-gray-800 rounded-xl p-4 border border-gray-700">
+            <p class="text-gray-400 text-xs">Tổng tài khoản</p>
+            <p class="text-2xl font-bold text-indigo-400 mt-1">1,284</p>
+        </div>
+        <div class="bg-gray-800 rounded-xl p-4 border border-gray-700">
+            <p class="text-gray-400 text-xs">Tài khoản đang hoạt động</p>
+            <p class="text-2xl font-bold text-green-400 mt-1">1,127</p>
+        </div>
+        <div class="bg-gray-800 rounded-xl p-4 border border-gray-700">
+            <p class="text-gray-400 text-xs">Bị khóa / Tạm dừng</p>
+            <p class="text-2xl font-bold text-red-400 mt-1">157</p>
+        </div>
+        <div class="bg-gray-800 rounded-xl p-4 border border-gray-700">
+            <p class="text-gray-400 text-xs">Tài khoản mới hôm nay</p>
+            <p class="text-2xl font-bold text-yellow-400 mt-1">24</p>
+        </div>
+    </div>
+
+    <!-- FILTER BAR -->
+    <div class="flex flex-col sm:flex-row justify-between items-center gap-2 mb-6">
+        <div class="flex items-center gap-2 w-full sm:w-auto">
+            <input type="text" placeholder="🔎 Tìm kiếm tài khoản..."
+                   class="bg-gray-800 text-gray-200 px-3 py-2 rounded-lg border border-gray-700 focus:ring-2 focus:ring-indigo-500 outline-none text-xs w-full sm:w-64">
+            <select class="bg-gray-800 text-gray-200 border border-gray-700 rounded-lg px-2 py-2 text-xs focus:ring-2 focus:ring-indigo-500">
+                <option>Tất cả vai trò</option>
+                <option>Patient</option>
+                <option>Doctor</option>
+                <option>Admin</option>
+                <option>Super Admin</option>
+            </select>
+        </div>
+        <div class="flex items-center gap-2">
+            <button class="px-3 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg text-xs font-semibold transition">
+                ➕ Thêm tài khoản
+            </button>
+            <button class="px-3 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-xs font-semibold transition">
+                🔄 Làm mới
+            </button>
+        </div>
+    </div>
+
+    <!-- TABLE -->
+    <h2 class="text-sm font-semibold text-indigo-400 mb-3">👥 Danh sách tài khoản hệ thống</h2>
+    <table class="w-full text-xs border-collapse border border-gray-800 mb-8">
+        <thead class="bg-gray-800 text-gray-300">
+        <tr>
+            <th class="p-2 border border-gray-700 text-left">ID</th>
+            <th class="p-2 border border-gray-700 text-left">Tên người dùng</th>
+            <th class="p-2 border border-gray-700 text-left">Email</th>
+            <th class="p-2 border border-gray-700 text-left">Vai trò</th>
+            <th class="p-2 border border-gray-700 text-left">Trạng thái</th>
+            <th class="p-2 border border-gray-700 text-center">Thao tác</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="hover:bg-gray-800 transition">
+            <td class="p-2 border border-gray-800">U001</td>
+            <td class="p-2 border border-gray-800">Nguyễn Văn A</td>
+            <td class="p-2 border border-gray-800">admin@sys.vn</td>
+            <td class="p-2 border border-gray-800 text-indigo-400">SUPER_ADMIN</td>
+            <td class="p-2 border border-gray-800">
+                <span class="px-2 py-1 bg-green-600 rounded text-white text-[10px]">Hoạt động</span>
+            </td>
+            <td class="p-2 border border-gray-800 text-right space-x-1">
+                <button class="bg-blue-600 hover:bg-blue-500 text-[10px] px-2 py-1 rounded">Chi tiết</button>
+                <button class="bg-yellow-600 hover:bg-yellow-500 text-[10px] px-2 py-1 rounded">Sửa</button>
+                <button class="bg-purple-600 hover:bg-purple-500 text-[10px] px-2 py-1 rounded">Phân quyền</button>
+                <button class="bg-red-600 hover:bg-red-500 text-[10px] px-2 py-1 rounded">Vô hiệu</button>
+            </td>
+        </tr>
+        <tr class="hover:bg-gray-800 transition">
+            <td class="p-2 border border-gray-800">U002</td>
+            <td class="p-2 border border-gray-800">Trần Thị B</td>
+            <td class="p-2 border border-gray-800">doctor@hcmc.vn</td>
+            <td class="p-2 border border-gray-800 text-teal-400">DOCTOR</td>
+            <td class="p-2 border border-gray-800">
+                <span class="px-2 py-1 bg-yellow-600 rounded text-white text-[10px]">Chờ duyệt</span>
+            </td>
+            <td class="p-2 border border-gray-800 text-right space-x-1">
+                <button class="bg-blue-600 hover:bg-blue-500 text-[10px] px-2 py-1 rounded">Chi tiết</button>
+                <button class="bg-yellow-600 hover:bg-yellow-500 text-[10px] px-2 py-1 rounded">Sửa</button>
+                <button class="bg-purple-600 hover:bg-purple-500 text-[10px] px-2 py-1 rounded">Phân quyền</button>
+                <button class="bg-green-600 hover:bg-green-500 text-[10px] px-2 py-1 rounded">Kích hoạt</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!-- SYSTEM LOG -->
+    <h2 class="text-sm font-semibold text-indigo-400 mb-3">🧾 Nhật ký hệ thống</h2>
+    <div class="bg-gray-800 rounded-xl border border-gray-700 p-3 space-y-1 h-44 overflow-y-auto text-xs font-mono">
+        <div><span class="text-green-400">[INFO]</span> 2025-11-01 08:12:33 — SuperAdmin “root” đăng nhập thành công</div>
+        <div><span class="text-yellow-400">[WARN]</span> 2025-11-01 08:20:14 — User “Doctor01” yêu cầu phân quyền sai</div>
+        <div><span class="text-red-400">[ERROR]</span> 2025-11-01 08:33:42 — Không thể kết nối DB bệnh viện #23</div>
+        <div><span class="text-green-400">[INFO]</span> 2025-11-01 09:01:10 — Đồng bộ dữ liệu hoàn tất</div>
+    </div>
+</section>

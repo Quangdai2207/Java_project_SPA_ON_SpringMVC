@@ -1,0 +1,96 @@
+<section id="super-admin-system-log-management" class="col-span-4 bg-gray-900 rounded-2xl border border-gray-800 p-6 shadow-md">
+    <!-- STATS -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+        <div class="bg-gray-800 rounded-xl p-3 border border-gray-700">
+            <p class="text-gray-400 text-xs">Tổng số log</p>
+            <p class="text-xl font-bold text-indigo-400 mt-1">12,480</p>
+        </div>
+        <div class="bg-gray-800 rounded-xl p-3 border border-gray-700">
+            <p class="text-gray-400 text-xs">Log thông tin (INFO)</p>
+            <p class="text-xl font-bold text-green-400 mt-1">8,324</p>
+        </div>
+        <div class="bg-gray-800 rounded-xl p-3 border border-gray-700">
+            <p class="text-gray-400 text-xs">Cảnh báo (WARN)</p>
+            <p class="text-xl font-bold text-yellow-400 mt-1">2,312</p>
+        </div>
+        <div class="bg-gray-800 rounded-xl p-3 border border-gray-700">
+            <p class="text-gray-400 text-xs">Lỗi nghiêm trọng (ERROR)</p>
+            <p class="text-xl font-bold text-red-400 mt-1">1,844</p>
+        </div>
+    </div>
+
+    <!-- FILTERS -->
+    <div class="flex flex-col sm:flex-row justify-between items-center mb-4 gap-2">
+        <div class="flex items-center gap-2">
+            <label class="text-gray-300 text-xs">Loại log:</label>
+            <select class="bg-gray-800 text-gray-200 border border-gray-700 rounded px-2 py-1 text-xs">
+                <option value="all">Tất cả</option>
+                <option value="info">INFO</option>
+                <option value="warn">WARN</option>
+                <option value="error">ERROR</option>
+            </select>
+        </div>
+        <div class="flex items-center gap-2">
+            <input type="text" placeholder="Tìm kiếm từ khóa..." class="bg-gray-800 border border-gray-700 text-gray-200 rounded px-2 py-1 text-xs w-48">
+            <button class="bg-indigo-600 hover:bg-indigo-500 text-white px-3 py-1 rounded text-xs">Tìm kiếm</button>
+        </div>
+    </div>
+
+    <!-- LOG TABLE -->
+    <h2 class="text-sm font-semibold text-indigo-400 mb-3">🧾 Danh sách log hệ thống</h2>
+    <table class="w-full text-xs border-collapse border border-gray-800 mb-6">
+        <thead class="bg-gray-800 text-gray-300">
+        <tr>
+            <th class="p-2 border border-gray-700 text-left">Thời gian</th>
+            <th class="p-2 border border-gray-700 text-left">Cấp độ</th>
+            <th class="p-2 border border-gray-700 text-left">Nguồn</th>
+            <th class="p-2 border border-gray-700 text-left">Mô tả</th>
+            <th class="p-2 border border-gray-700 text-center">Thao tác</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="hover:bg-gray-800">
+            <td class="p-2 border border-gray-800">2025-11-01 08:30:12</td>
+            <td class="p-2 border border-gray-800 text-green-400 font-mono">INFO</td>
+            <td class="p-2 border border-gray-800">AuthService</td>
+            <td class="p-2 border border-gray-800">Người dùng “admin01” đăng nhập thành công</td>
+            <td class="p-2 border border-gray-800 text-center space-x-1">
+                <button class="bg-blue-600 hover:bg-blue-500 text-white px-2 py-1 rounded">Chi tiết</button>
+            </td>
+        </tr>
+        <tr class="hover:bg-gray-800">
+            <td class="p-2 border border-gray-800">2025-11-01 08:45:55</td>
+            <td class="p-2 border border-gray-800 text-yellow-400 font-mono">WARN</td>
+            <td class="p-2 border border-gray-800">DataSync</td>
+            <td class="p-2 border border-gray-800">Đồng bộ dữ liệu chậm ở BV #H012</td>
+            <td class="p-2 border border-gray-800 text-center space-x-1">
+                <button class="bg-blue-600 hover:bg-blue-500 text-white px-2 py-1 rounded">Chi tiết</button>
+            </td>
+        </tr>
+        <tr class="hover:bg-gray-800">
+            <td class="p-2 border border-gray-800">2025-11-01 09:10:04</td>
+            <td class="p-2 border border-gray-800 text-red-400 font-mono">ERROR</td>
+            <td class="p-2 border border-gray-800">HospitalAPI</td>
+            <td class="p-2 border border-gray-800">Không thể truy cập dữ liệu bệnh viện #H023</td>
+            <td class="p-2 border border-gray-800 text-center space-x-1">
+                <button class="bg-blue-600 hover:bg-blue-500 text-white px-2 py-1 rounded">Chi tiết</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!-- DETAIL LOG VIEW -->
+    <h2 class="text-sm font-semibold text-indigo-400 mb-3">📋 Chi tiết log</h2>
+    <div class="bg-gray-800 rounded-xl border border-gray-700 p-3 h-40 overflow-y-auto text-xs font-mono text-gray-300">
+        <span class="text-green-400">[INFO]</span> 2025-11-01 08:30:12
+        Source: AuthService
+        Message: Người dùng “admin01” đăng nhập thành công
+        IP: 192.168.1.23
+        User-Agent: Chrome/141.0.0.0 macOS
+        ---
+        <span class="text-yellow-400">[WARN]</span> 2025-11-01 08:45:55
+        Source: DataSync
+        Message: Đồng bộ dữ liệu chậm ở bệnh viện #H012
+        Duration: 12.4s
+    </div>
+</section>

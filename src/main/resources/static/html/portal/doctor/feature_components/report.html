@@ -1,0 +1,106 @@
+<section id="portal-doctor-report" class="  bg-gray-900 text-gray-100 p-6 rounded-2xl shadow-lg">
+    <!-- HEADER -->
+    <div class="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
+        <h2 class="text-2xl font-bold text-cyan-400 flex items-center gap-2">
+            <i class="fas fa-chart-line"></i> Báo cáo
+        </h2>
+
+        <!-- FILTERS -->
+        <div class="flex flex-wrap gap-3">
+            <select id="reportPeriod" class="bg-gray-800 px-4 py-2 rounded-lg focus:ring-2 focus:ring-cyan-500">
+                <option value="today">Hôm nay</option>
+                <option value="week">Tuần này</option>
+                <option value="month">Tháng này</option>
+                <option value="year">Cả năm</option>
+            </select>
+
+            <select id="reportType" class="bg-gray-800 px-4 py-2 rounded-lg focus:ring-2 focus:ring-cyan-500">
+                <option value="general">Tổng quan</option>
+                <option value="patients">Bệnh nhân</option>
+                <option value="prescriptions">Đơn thuốc</option>
+                <option value="diagnosis">Chẩn đoán</option>
+            </select>
+
+            <button class="bg-cyan-600 px-4 py-2 rounded-lg hover:bg-cyan-500 flex items-center gap-2">
+                <i class="fas fa-sync-alt"></i> Làm mới
+            </button>
+
+            <button class="bg-green-700 px-4 py-2 rounded-lg hover:bg-green-600 flex items-center gap-2">
+                <i class="fas fa-file-export"></i> Xuất báo cáo PDF
+            </button>
+        </div>
+    </div>
+
+    <!-- STAT CARDS -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div class="bg-gray-800 p-5 rounded-xl border border-cyan-700/30 shadow hover:shadow-cyan-700/40 transition">
+            <h3 class="text-gray-400 text-sm mb-1">Tổng số bệnh nhân</h3>
+            <p class="text-3xl font-bold text-cyan-400">126</p>
+        </div>
+        <div class="bg-gray-800 p-5 rounded-xl border border-green-700/30 shadow hover:shadow-green-700/40 transition">
+            <h3 class="text-gray-400 text-sm mb-1">Đơn thuốc đã kê</h3>
+            <p class="text-3xl font-bold text-green-400">312</p>
+        </div>
+        <div class="bg-gray-800 p-5 rounded-xl border border-yellow-700/30 shadow hover:shadow-yellow-700/40 transition">
+            <h3 class="text-gray-400 text-sm mb-1">Tỷ lệ điều trị thành công</h3>
+            <p class="text-3xl font-bold text-yellow-400">89%</p>
+        </div>
+        <div class="bg-gray-800 p-5 rounded-xl border border-purple-700/30 shadow hover:shadow-purple-700/40 transition">
+            <h3 class="text-gray-400 text-sm mb-1">Bệnh nhân tái khám</h3>
+            <p class="text-3xl font-bold text-purple-400">18</p>
+        </div>
+    </div>
+
+    <!-- CHART AREA -->
+    <div class="bg-gray-800 rounded-2xl p-6 shadow border border-gray-700 mb-8">
+        <h3 class="text-lg font-semibold text-gray-200 mb-4 flex items-center gap-2">
+            <i class="fas fa-chart-bar text-cyan-400"></i> Biểu đồ tổng quan hoạt động
+        </h3>
+        <div class="h-64 flex items-center justify-center text-gray-500 italic">
+            (Biểu đồ hiệu suất sẽ được hiển thị tại đây)
+        </div>
+    </div>
+
+    <!-- TABLE -->
+    <div class="bg-gray-800 rounded-2xl shadow border border-gray-700 overflow-hidden">
+        <div class="flex justify-between items-center p-4 border-b border-gray-700">
+            <h3 class="text-lg font-semibold text-gray-200 flex items-center gap-2">
+                <i class="fas fa-list-alt text-cyan-400"></i> Báo cáo chi tiết
+            </h3>
+            <button class="bg-gray-700 px-3 py-1 rounded hover:bg-gray-600 text-sm">
+                Lọc nâng cao
+            </button>
+        </div>
+
+        <div class="overflow-x-auto">
+            <table class="min-w-full text-sm text-left">
+                <thead class="bg-gray-700 text-gray-300 uppercase text-xs">
+                <tr>
+                    <th class="px-4 py-3">Ngày</th>
+                    <th class="px-4 py-3">Bệnh nhân</th>
+                    <th class="px-4 py-3">Loại báo cáo</th>
+                    <th class="px-4 py-3">Kết quả</th>
+                    <th class="px-4 py-3">Ghi chú</th>
+                    <th class="px-4 py-3 text-center">Hành động</th>
+                </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-700">
+                <tr class="hover:bg-gray-700/40 transition">
+                    <td class="px-4 py-3">02/11/2025</td>
+                    <td class="px-4 py-3 font-medium text-cyan-400">Nguyễn Văn A</td>
+                    <td class="px-4 py-3">Báo cáo điều trị</td>
+                    <td class="px-4 py-3 text-green-400 font-semibold">Ổn định</td>
+                    <td class="px-4 py-3 text-gray-400 italic">Cải thiện rõ rệt sau 7 ngày</td>
+                    <td class="px-4 py-3 text-center">
+                        <div class="flex justify-center gap-2">
+                            <button class="bg-blue-600 hover:bg-blue-500 px-3 py-1 rounded text-xs">Xem</button>
+                            <button class="bg-yellow-600 hover:bg-yellow-500 px-3 py-1 rounded text-xs">Cập nhật</button>
+                            <button class="bg-green-700 hover:bg-green-600 px-3 py-1 rounded text-xs">Xuất PDF</button>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

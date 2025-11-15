@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{/auth/layout :: content('register account', ~{::register-page})}">
+
+<th:block th:fragment="register-page">
+    <div class="flex items-center justify-center bg-gray-100 dark:bg-gray-950">
+        <div class="w-full max-w-3xl bg-white dark:bg-gray-900 rounded-xl shadow-md border border-gray-200 dark:border-gray-800 p-8">
+
+            <!-- Tiêu đề -->
+            <div class="text-center mb-6">
+                <h1 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">Đăng ký tài khoản</h1>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                    Điền thông tin để tạo tài khoản mới
+                </p>
+            </div>
+
+            <!-- Form -->
+            <form id="form-register" class="grid grid-cols-2 gap-4">
+
+                <!-- Email -->
+                <div class="col-span-2">
+                    <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Email</label>
+                    <input id="email" name="email" type="email"
+                           class="mt-1 w-full px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-transparent dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-indigo-500 outline-none"
+                           placeholder="example@gmail.com">
+                </div>
+
+                <!-- Họ -->
+                <div>
+                    <label for="firstname" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Họ</label>
+                    <input id="firstname" name="firstName" type="text"
+                           class="mt-1 w-full px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-transparent dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-indigo-500 outline-none"
+                           placeholder="Nguyễn">
+                </div>
+
+                <!-- Tên -->
+                <div>
+                    <label for="lastname" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Tên</label>
+                    <input id="lastname" name="lastName" type="text"
+                           class="mt-1 w-full px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-transparent dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-indigo-500 outline-none"
+                           placeholder="Văn A">
+                </div>
+
+                <!-- Giới tính -->
+                <div>
+                    <label for="gender" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Giới tính</label>
+                    <select id="gender" name="gender"
+                            class="mt-1 w-full px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-transparent dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-indigo-500 outline-none">
+                        <option value="-1">Chọn giới tính</option>
+                        <option value="1">Nam</option>
+                        <option value="2">Nữ</option>
+                    </select>
+                </div>
+
+                <!-- Ngày sinh -->
+                <div>
+                    <label for="dob" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Ngày sinh</label>
+                    <input id="dob" name="dob" type="date"
+                           class="mt-1 w-full px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-transparent dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-indigo-500 outline-none">
+                </div>
+
+                <!-- Mật khẩu -->
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Mật khẩu</label>
+                    <input id="password" name="password" type="password"
+                           class="mt-1 w-full px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-transparent dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-indigo-500 outline-none"
+                           placeholder="••••••••">
+                </div>
+
+                <!-- Xác nhận mật khẩu -->
+                <div>
+                    <label for="confirm-password" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Xác nhận mật khẩu</label>
+                    <input id="confirm-password" name="cfpassword" type="password"
+                           class="mt-1 w-full px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-transparent dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-indigo-500 outline-none"
+                           placeholder="••••••••">
+                </div>
+
+                <!-- Nút đăng ký -->
+                <div class="col-span-2 mt-4">
+                    <button type="submit" id="btn-register"
+                            class="w-full py-2.5 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-semibold transition duration-300">
+                        Đăng ký
+                    </button>
+                </div>
+            </form>
+
+            <!-- Khối hiển thị lỗi -->
+            <div id="register-error"
+                 class="mt-4 hidden rounded-lg border border-red-500 bg-red-50 dark:bg-red-950 text-red-700 dark:text-red-400 p-3 text-sm font-medium">
+                <!-- Các lỗi sẽ hiển thị ở đây -->
+            </div>
+        </div>
+    </div>
+</th:block>
+</html>

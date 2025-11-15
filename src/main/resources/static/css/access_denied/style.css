@@ -1,0 +1,61 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f5f5f5;
+}
+
+#sign-wrapper {
+    max-width: 600px; /* 👈 Giới hạn chiều rộng */
+    width: 90%; /* 👈 Tự co giãn theo màn hình */
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #ef5350;
+    margin: 0 0 10px;
+}
+
+#sign-body h2 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+#sign-body p {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#circle-container {
+    max-width: 300px; /* 👈 Giới hạn kích thước ảnh */
+    margin: 0 auto;
+}
+
+svg {
+    width: 100%; /* 👈 Ảnh co giãn theo khung */
+    height: auto;
+}
+
+/* Ẩn các phần hole / strike nếu không cần */
+.hole, .strike {
+    display: none;
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    #sign-body h2 {
+        font-size: 1.2rem;
+    }
+}

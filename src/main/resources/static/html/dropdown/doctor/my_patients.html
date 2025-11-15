@@ -1,0 +1,91 @@
+<section id="section-doctor-my-patient" class=" p-6 bg-gray-900 text-gray-100 min-h-screen">
+    <div class="max-w-7xl mx-auto">
+
+        <!-- Header -->
+        <div class="flex items-center justify-between mb-8">
+            <h2 class="text-2xl font-semibold text-indigo-400">Bệnh nhân của tôi</h2>
+            <div class="flex items-center gap-3">
+                <button id="btn-doctor-dropdown-back" class="px-4 py-2 bg-orange-600 hover:bg-orange-700 rounded-xl text-white font-medium">
+                    ← Quay lại
+                </button>
+                <button id="btn-refresh-patient-list" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 rounded-xl text-white font-medium">
+                    ⟳ Làm mới
+                </button>
+            </div>
+        </div>
+
+        <!-- Search & Filter -->
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+            <div class="flex flex-col md:flex-row gap-4 w-full">
+                <input
+                        id="search-patient"
+                        type="text"
+                        placeholder="🔍 Tìm theo tên hoặc mã bệnh nhân..."
+                        class="w-full md:w-1/2 px-4 py-2 bg-gray-800 border border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 text-gray-200 placeholder-gray-500"
+                />
+                <select id="filter-status" class="w-full md:w-1/4 px-4 py-2 bg-gray-800 border border-gray-700 rounded-xl text-gray-200 focus:ring-2 focus:ring-indigo-500">
+                    <option value="">Tất cả trạng thái</option>
+                    <option value="waiting">Chờ khám</option>
+                    <option value="treating">Đang điều trị</option>
+                    <option value="done">Đã hoàn thành</option>
+                </select>
+                <input
+                        id="filter-date"
+                        type="date"
+                        class="w-full md:w-1/4 px-4 py-2 bg-gray-800 border border-gray-700 rounded-xl text-gray-200 focus:ring-2 focus:ring-indigo-500"
+                />
+            </div>
+        </div>
+
+        <!-- Table -->
+        <div class="overflow-x-auto border border-gray-800 rounded-xl shadow-md">
+            <table class="w-full text-left border-collapse">
+                <thead class="bg-gray-800 text-gray-300 text-sm uppercase tracking-wide">
+                <tr>
+                    <th class="px-4 py-3 border-b border-gray-700">Mã BN</th>
+                    <th class="px-4 py-3 border-b border-gray-700">Tên bệnh nhân</th>
+                    <th class="px-4 py-3 border-b border-gray-700">Ngày khám gần nhất</th>
+                    <th class="px-4 py-3 border-b border-gray-700">Chẩn đoán</th>
+                    <th class="px-4 py-3 border-b border-gray-700">Trạng thái</th>
+                    <th class="px-4 py-3 border-b border-gray-700 text-center">Hành động</th>
+                </tr>
+                </thead>
+                <tbody class="text-gray-200">
+                <!-- Example Row -->
+                <tr class="hover:bg-gray-800/70 transition">
+                    <td class="px-4 py-3 border-b border-gray-800 font-medium text-indigo-300">BN1023</td>
+                    <td class="px-4 py-3 border-b border-gray-800">Nguyễn Văn A</td>
+                    <td class="px-4 py-3 border-b border-gray-800">2025-10-31</td>
+                    <td class="px-4 py-3 border-b border-gray-800">Tăng huyết áp</td>
+                    <td class="px-4 py-3 border-b border-gray-800">
+                            <span class="px-2 py-1 bg-green-700/40 text-green-300 rounded-full text-xs font-semibold">
+                                Đang điều trị
+                            </span>
+                    </td>
+                    <td class="px-4 py-3 border-b border-gray-800 text-center">
+                        <div class="flex justify-center gap-2">
+                            <button class="px-3 py-1 bg-indigo-600 hover:bg-indigo-700 rounded-lg text-sm">Xem</button>
+                            <button class="px-3 py-1 bg-blue-600 hover:bg-blue-700 rounded-lg text-sm">Ghi chú</button>
+                            <button class="px-3 py-1 bg-yellow-600 hover:bg-yellow-700 rounded-lg text-sm">Tạo lịch khám</button>
+                            <button class="px-3 py-1 bg-red-600 hover:bg-red-700 rounded-lg text-sm">Kết thúc</button>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Pagination -->
+        <div class="flex justify-between items-center mt-6 text-gray-400 text-sm">
+            <p>Hiển thị <span class="text-indigo-400">1–10</span> trên tổng <span class="text-indigo-400">56</span> bệnh nhân</p>
+            <div class="flex items-center gap-2">
+                <button class="px-3 py-1 bg-gray-800 hover:bg-gray-700 rounded-lg">&lt;</button>
+                <button class="px-3 py-1 bg-indigo-600 hover:bg-indigo-700 rounded-lg">1</button>
+                <button class="px-3 py-1 bg-gray-800 hover:bg-gray-700 rounded-lg">2</button>
+                <button class="px-3 py-1 bg-gray-800 hover:bg-gray-700 rounded-lg">3</button>
+                <button class="px-3 py-1 bg-gray-800 hover:bg-gray-700 rounded-lg">&gt;</button>
+            </div>
+        </div>
+
+    </div>
+</section>

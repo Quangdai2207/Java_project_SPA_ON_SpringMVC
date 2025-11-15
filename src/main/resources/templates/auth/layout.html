@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:fragment="content(title, auth_pages)">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title}"></title>
+
+    <!-- Tailwind + jQuery -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/stompjs@2.3.3/lib/stomp.min.js"></script>
+    <script type="module" th:src="@{/js/main.js}"></script>
+    <!-- Dark mode init -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const html = document.documentElement;
+            const savedTheme = localStorage.getItem("theme");
+            if (savedTheme === "dark" || (!savedTheme && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+                html.classList.add("dark");
+            }
+        });
+    </script>
+</head>
+
+<body class="h-screen flex flex-col bg-gray-100 dark:bg-gray-950 transition-colors duration-500 overflow-hidden">
+
+<!-- 🔹 Header -->
+<header class="flex items-center justify-between px-8 py-3 bg-white/70 dark:bg-gray-900/70 backdrop-blur-md shadow-sm z-30 transition-colors duration-300">
+    <div class="flex items-center space-x-3 cursor-pointer select-none">
+        <span class="text-2xl font-semibold bg-gradient-to-r from-purple-800 to-pink-600 dark:from-indigo-400 dark:to-purple-500 text-transparent bg-clip-text">
+        HealthCare
+        </span>
+    </div>
+
+    <a th:href="@{/}" class="text-white font-bold text-sm">Home page</a>
+</header>
+
+<!-- 🔹 Main content -->
+<main class="flex-1 flex items-center justify-center">
+    <th:block th:replace="${auth_pages}?:_"></th:block>
+</main>
+<script th:src="@{/js/websocket_connect.js}" defer></script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<section id="section-admin-report" class=" p-8 bg-gray-900 text-gray-100 min-h-screen">
+    <!-- HEADER -->
+    <div class="flex items-center justify-between mb-8">
+        <h2 class="text-2xl font-semibold text-indigo-400">Báo cáo & Thống kê hệ thống</h2>
+        <button id="btn-admin-dropdown-back"
+                class="px-4 py-2 bg-orange-600 hover:bg-orange-700 rounded-xl text-white font-medium">
+            Quay lại
+        </button>
+    </div>
+
+    <!-- FILTER PANEL -->
+    <div class="bg-gray-800 p-6 rounded-2xl shadow-md mb-8">
+        <div class="grid md:grid-cols-4 gap-4">
+            <div>
+                <label class="block mb-1 text-gray-300">Từ ngày</label>
+                <input type="date" id="report-start-date" class="w-full bg-gray-700 text-white rounded-lg px-3 py-2 focus:ring focus:ring-indigo-500">
+            </div>
+            <div>
+                <label class="block mb-1 text-gray-300">Đến ngày</label>
+                <input type="date" id="report-end-date" class="w-full bg-gray-700 text-white rounded-lg px-3 py-2 focus:ring focus:ring-indigo-500">
+            </div>
+            <div>
+                <label class="block mb-1 text-gray-300">Loại báo cáo</label>
+                <select id="report-type" class="w-full bg-gray-700 text-white rounded-lg px-3 py-2">
+                    <option value="appointment">Lịch khám</option>
+                    <option value="patient">Bệnh nhân</option>
+                    <option value="doctor">Bác sĩ</option>
+                    <option value="revenue">Doanh thu</option>
+                </select>
+            </div>
+            <div class="flex items-end">
+                <button id="btn-generate-report"
+                        class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 rounded-xl">
+                    Tạo báo cáo
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- DASHBOARD OVERVIEW -->
+    <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-6 mb-10">
+        <div class="bg-gray-800 rounded-2xl p-5 shadow-md text-center">
+            <h3 class="text-gray-400 mb-2 text-sm uppercase">Tổng lịch khám</h3>
+            <p class="text-3xl font-bold text-indigo-400" id="report-total-appointments">0</p>
+        </div>
+        <div class="bg-gray-800 rounded-2xl p-5 shadow-md text-center">
+            <h3 class="text-gray-400 mb-2 text-sm uppercase">Tổng bệnh nhân</h3>
+            <p class="text-3xl font-bold text-green-400" id="report-total-patients">0</p>
+        </div>
+        <div class="bg-gray-800 rounded-2xl p-5 shadow-md text-center">
+            <h3 class="text-gray-400 mb-2 text-sm uppercase">Tổng bác sĩ</h3>
+            <p class="text-3xl font-bold text-yellow-400" id="report-total-doctors">0</p>
+        </div>
+        <div class="bg-gray-800 rounded-2xl p-5 shadow-md text-center">
+            <h3 class="text-gray-400 mb-2 text-sm uppercase">Doanh thu</h3>
+            <p class="text-3xl font-bold text-red-400" id="report-total-revenue">0 ₫</p>
+        </div>
+    </div>
+
+    <!-- CHART AREA -->
+    <div class="bg-gray-800 p-6 rounded-2xl shadow-md mb-10">
+        <h3 class="text-lg font-semibold mb-4 text-indigo-300">Biểu đồ thống kê</h3>
+        <div id="report-chart" class="h-80 flex items-center justify-center text-gray-500">
+            <p>Đang tải dữ liệu biểu đồ...</p>
+        </div>
+    </div>
+
+    <!-- DETAILED REPORT TABLE -->
+    <div class="bg-gray-800 p-6 rounded-2xl shadow-md">
+        <div class="flex items-center justify-between mb-4">
+            <h3 class="text-lg font-semibold text-indigo-300">Chi tiết dữ liệu</h3>
+            <div class="flex gap-2">
+                <input type="text" id="search-report" placeholder="Tìm kiếm..."
+                       class="bg-gray-700 text-white px-3 py-2 rounded-lg focus:ring focus:ring-indigo-500">
+                <button id="btn-export-report"
+                        class="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-xl">
+                    Xuất file CSV
+                </button>
+            </div>
+        </div>
+
+        <div class="overflow-x-auto">
+            <table class="w-full border border-gray-700 rounded-lg text-sm">
+                <thead class="bg-gray-700 text-gray-300 uppercase">
+                <tr>
+                    <th class="p-3 text-left">STT</th>
+                    <th class="p-3 text-left">Tên báo cáo</th>
+                    <th class="p-3 text-left">Ngày tạo</th>
+                    <th class="p-3 text-left">Người tạo</th>
+                    <th class="p-3 text-left">Loại</th>
+                    <th class="p-3 text-center">Hành động</th>
+                </tr>
+                </thead>
+                <tbody id="report-data" class="divide-y divide-gray-700">
+                <tr>
+                    <td colspan="6" class="p-4 text-center text-gray-400">Chưa có dữ liệu báo cáo...</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

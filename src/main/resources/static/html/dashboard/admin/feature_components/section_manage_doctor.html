@@ -1,0 +1,91 @@
+<section id="section-admin-dashboard-manage-doctor"
+         class=" col-span-4 bg-gray-900 rounded-2xl border border-gray-800 p-6 shadow-md">
+    <!-- HEADER -->
+    <div class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl font-semibold text-blue-400">🧑‍⚕️ Quản lý bác sĩ</h2>
+        <button class="bg-orange-600 hover:bg-orange-700 text-gray-200 text-sm px-4 py-2 rounded-lg border border-gray-700">
+            Quay lại
+        </button>
+    </div>
+
+    <!-- FILTER + SEARCH -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-3 mb-6">
+        <input type="text" placeholder="🔍 Tìm theo tên bác sĩ..."
+               class="col-span-2 bg-gray-800 border border-gray-700 rounded-lg p-2 text-gray-200 placeholder-gray-500">
+        <select class="bg-gray-800 border border-gray-700 rounded-lg p-2 text-gray-200">
+            <option value="">-- Khoa --</option>
+            <option>Khoa Nội</option>
+            <option>Khoa Ngoại</option>
+            <option>Khoa Nhi</option>
+            <option>Khoa Tim Mạch</option>
+        </select>
+        <select class="bg-gray-800 border border-gray-700 rounded-lg p-2 text-gray-200">
+            <option value="">-- Trạng thái --</option>
+            <option>Đang làm việc</option>
+            <option>Nghỉ phép</option>
+            <option>Tạm ngưng</option>
+        </select>
+        <button class="bg-blue-600 hover:bg-blue-500 text-white text-sm font-semibold rounded-lg px-4 py-2">
+            Lọc kết quả
+        </button>
+    </div>
+
+    <!-- TABLE -->
+    <div class="overflow-x-auto rounded-lg border border-gray-800">
+        <table class="w-full text-sm border-collapse">
+            <thead class="bg-gray-800 text-gray-300">
+            <tr>
+                <th class="p-2 border border-gray-700 text-left">Mã BS</th>
+                <th class="p-2 border border-gray-700 text-left">Họ tên</th>
+                <th class="p-2 border border-gray-700 text-left">Khoa</th>
+                <th class="p-2 border border-gray-700 text-left">Email</th>
+                <th class="p-2 border border-gray-700 text-left">SĐT</th>
+                <th class="p-2 border border-gray-700 text-left">Trạng thái</th>
+                <th class="p-2 border border-gray-700 text-center">Hành động</th>
+            </tr>
+            </thead>
+            <tbody class="text-gray-200">
+            <tr class="hover:bg-gray-800">
+                <td class="p-2 border border-gray-800">D001</td>
+                <td class="p-2 border border-gray-800">BS. Nguyễn Minh</td>
+                <td class="p-2 border border-gray-800">Khoa Tim Mạch</td>
+                <td class="p-2 border border-gray-800">minh@hospital.vn</td>
+                <td class="p-2 border border-gray-800">0905123456</td>
+                <td class="p-2 border border-gray-800">
+                    <span class="px-2 py-1 bg-green-600 rounded text-xs text-white">Đang làm việc</span>
+                </td>
+                <td class="p-2 border border-gray-800 text-center space-x-2">
+                    <button class="bg-blue-600 hover:bg-blue-500 text-xs px-2 py-1 rounded">Chi tiết</button>
+                    <button class="bg-yellow-600 hover:bg-yellow-500 text-xs px-2 py-1 rounded">Chỉnh sửa</button>
+                    <button class="bg-red-600 hover:bg-red-500 text-xs px-2 py-1 rounded">Vô hiệu</button>
+                </td>
+            </tr>
+            <tr class="hover:bg-gray-800">
+                <td class="p-2 border border-gray-800">D002</td>
+                <td class="p-2 border border-gray-800">BS. Phạm Thảo</td>
+                <td class="p-2 border border-gray-800">Khoa Nhi</td>
+                <td class="p-2 border border-gray-800">thao@hospital.vn</td>
+                <td class="p-2 border border-gray-800">0912345678</td>
+                <td class="p-2 border border-gray-800">
+                    <span class="px-2 py-1 bg-yellow-600 rounded text-xs text-white">Nghỉ phép</span>
+                </td>
+                <td class="p-2 border border-gray-800 text-center space-x-2">
+                    <button class="bg-blue-600 hover:bg-blue-500 text-xs px-2 py-1 rounded">Chi tiết</button>
+                    <button class="bg-yellow-600 hover:bg-yellow-500 text-xs px-2 py-1 rounded">Chỉnh sửa</button>
+                    <button class="bg-red-600 hover:bg-red-500 text-xs px-2 py-1 rounded">Vô hiệu</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- FOOTER ACTIONS -->
+    <div class="flex justify-end mt-6 space-x-3">
+        <button class="bg-green-600 hover:bg-green-500 text-white text-sm font-semibold rounded-lg px-4 py-2">
+            ➕ Thêm bác sĩ
+        </button>
+        <button class="bg-gray-700 hover:bg-gray-600 text-gray-200 text-sm font-semibold rounded-lg px-4 py-2">
+            ⟳ Làm mới
+        </button>
+    </div>
+</section>

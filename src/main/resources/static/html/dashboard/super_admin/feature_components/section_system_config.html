@@ -1,0 +1,112 @@
+<section id="super-admin-system-config" class="col-span-4 bg-gray-900 rounded-2xl border border-gray-800 p-6 shadow-md">
+    <!-- HEADER -->
+    <h2 class="text-sm font-semibold text-indigo-400 mb-6">⚙️ Cấu hình toàn bộ hệ thống</h2>
+
+    <!-- SYSTEM OVERVIEW -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+        <div class="bg-gray-800 rounded-xl p-3 border border-gray-700">
+            <p class="text-gray-400 text-xs">Phiên bản hệ thống</p>
+            <p class="text-xl font-bold text-indigo-400 mt-1">v3.2.4</p>
+        </div>
+        <div class="bg-gray-800 rounded-xl p-3 border border-gray-700">
+            <p class="text-gray-400 text-xs">Máy chủ đang hoạt động</p>
+            <p class="text-xl font-bold text-green-400 mt-1">5 / 5</p>
+        </div>
+        <div class="bg-gray-800 rounded-xl p-3 border border-gray-700">
+            <p class="text-gray-400 text-xs">Dung lượng sử dụng</p>
+            <p class="text-xl font-bold text-yellow-400 mt-1">78%</p>
+        </div>
+        <div class="bg-gray-800 rounded-xl p-3 border border-gray-700">
+            <p class="text-gray-400 text-xs">Cập nhật cuối</p>
+            <p class="text-xs text-gray-300 mt-1">2025-10-30 14:22:51</p>
+        </div>
+    </div>
+
+    <!-- GENERAL SETTINGS -->
+    <div class="bg-gray-800 rounded-2xl border border-gray-700 p-4 mb-6">
+        <h3 class="text-sm font-semibold text-gray-100 mb-3">🧭 Cấu hình chung</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-gray-300">
+            <label class="flex flex-col">
+                <span>Tên hệ thống</span>
+                <input type="text" value="MedixCare Global System" class="bg-gray-900 border border-gray-700 rounded px-2 py-1 mt-1 text-gray-200 focus:ring-2 focus:ring-indigo-500">
+            </label>
+            <label class="flex flex-col">
+                <span>Ngôn ngữ mặc định</span>
+                <select class="bg-gray-900 border border-gray-700 rounded px-2 py-1 mt-1 text-gray-200 focus:ring-2 focus:ring-indigo-500">
+                    <option>Tiếng Việt</option>
+                    <option>English</option>
+                </select>
+            </label>
+            <label class="flex flex-col">
+                <span>Múi giờ hệ thống</span>
+                <select class="bg-gray-900 border border-gray-700 rounded px-2 py-1 mt-1 text-gray-200 focus:ring-2 focus:ring-indigo-500">
+                    <option>GMT+07:00 (Asia/Ho_Chi_Minh)</option>
+                    <option>UTC</option>
+                    <option>GMT+09:00 (Tokyo)</option>
+                </select>
+            </label>
+            <label class="flex flex-col">
+                <span>Chế độ bảo trì</span>
+                <select class="bg-gray-900 border border-gray-700 rounded px-2 py-1 mt-1 text-gray-200 focus:ring-2 focus:ring-indigo-500">
+                    <option>Tắt</option>
+                    <option>Bật</option>
+                </select>
+            </label>
+        </div>
+        <button class="mt-4 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded text-xs font-semibold">Lưu cấu hình</button>
+    </div>
+
+    <!-- SERVER CONFIG -->
+    <div class="bg-gray-800 rounded-2xl border border-gray-700 p-4 mb-6">
+        <h3 class="text-sm font-semibold text-gray-100 mb-3">🖥️ Cấu hình máy chủ & API</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-gray-300">
+            <label class="flex flex-col">
+                <span>API Gateway</span>
+                <input type="text" value="https://api.medixcare.global/v1" class="bg-gray-900 border border-gray-700 rounded px-2 py-1 mt-1 text-gray-200 focus:ring-2 focus:ring-teal-500">
+            </label>
+            <label class="flex flex-col">
+                <span>Database Connection</span>
+                <input type="text" value="mongodb+srv://cluster-01.medixcare.net" class="bg-gray-900 border border-gray-700 rounded px-2 py-1 mt-1 text-gray-200 focus:ring-2 focus:ring-teal-500">
+            </label>
+            <label class="flex flex-col">
+                <span>Redis Cache</span>
+                <input type="text" value="redis://localhost:6379" class="bg-gray-900 border border-gray-700 rounded px-2 py-1 mt-1 text-gray-200 focus:ring-2 focus:ring-teal-500">
+            </label>
+            <label class="flex flex-col">
+                <span>SMTP Mail Server</span>
+                <input type="text" value="smtp.gmail.com" class="bg-gray-900 border border-gray-700 rounded px-2 py-1 mt-1 text-gray-200 focus:ring-2 focus:ring-teal-500">
+            </label>
+        </div>
+        <button class="mt-4 px-4 py-2 bg-teal-600 hover:bg-teal-700 text-white rounded text-xs font-semibold">Cập nhật máy chủ</button>
+    </div>
+
+    <!-- SECURITY SETTINGS -->
+    <div class="bg-gray-800 rounded-2xl border border-gray-700 p-4 mb-6">
+        <h3 class="text-sm font-semibold text-gray-100 mb-3">🔒 Cấu hình bảo mật</h3>
+        <div class="space-y-3 text-xs text-gray-300">
+            <label class="flex items-center justify-between">
+                <span>Bắt buộc xác thực 2 lớp (2FA)</span>
+                <input type="checkbox" checked class="w-4 h-4 accent-indigo-600">
+            </label>
+            <label class="flex items-center justify-between">
+                <span>Tự động khóa tài khoản sau 5 lần đăng nhập sai</span>
+                <input type="checkbox" checked class="w-4 h-4 accent-indigo-600">
+            </label>
+            <label class="flex items-center justify-between">
+                <span>Yêu cầu đổi mật khẩu mỗi 90 ngày</span>
+                <input type="checkbox" class="w-4 h-4 accent-indigo-600">
+            </label>
+        </div>
+        <button class="mt-4 px-4 py-2 bg-pink-600 hover:bg-pink-700 text-white rounded text-xs font-semibold">Lưu bảo mật</button>
+    </div>
+
+    <!-- SYSTEM ACTIONS -->
+    <div class="bg-gray-800 rounded-2xl border border-gray-700 p-4">
+        <h3 class="text-sm font-semibold text-gray-100 mb-3">🧱 Hành động hệ thống</h3>
+        <div class="flex flex-wrap gap-2">
+            <button class="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded text-xs font-semibold">📦 Sao lưu hệ thống</button>
+            <button class="px-4 py-2 bg-yellow-600 hover:bg-yellow-500 text-white rounded text-xs font-semibold">♻️ Khởi động lại dịch vụ</button>
+            <button class="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded text-xs font-semibold">🗑️ Đặt lại cấu hình</button>
+        </div>
+    </div>
+</section>

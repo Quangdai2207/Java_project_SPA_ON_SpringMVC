@@ -1,0 +1,73 @@
+<section id="super-admin-doctor-management" class="col-span-4 bg-gray-900 rounded-2xl border border-gray-800 p-6 shadow-md">
+    <!-- STATS -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+        <div class="bg-gray-800 rounded-xl p-3 border border-gray-700">
+            <p class="text-gray-400 text-xs">Tổng số bác sĩ</p>
+            <p class="text-xl font-bold text-indigo-400 mt-1">127</p>
+        </div>
+        <div class="bg-gray-800 rounded-xl p-3 border border-gray-700">
+            <p class="text-gray-400 text-xs">Bác sĩ đang hoạt động</p>
+            <p class="text-xl font-bold text-green-400 mt-1">96</p>
+        </div>
+        <div class="bg-gray-800 rounded-xl p-3 border border-gray-700">
+            <p class="text-gray-400 text-xs">Bác sĩ đang chờ duyệt</p>
+            <p class="text-xl font-bold text-yellow-400 mt-1">21</p>
+        </div>
+        <div class="bg-gray-800 rounded-xl p-3 border border-gray-700">
+            <p class="text-gray-400 text-xs">Tài khoản bị khóa</p>
+            <p class="text-xl font-bold text-red-400 mt-1">10</p>
+        </div>
+    </div>
+
+    <!-- DOCTOR TABLE -->
+    <h2 class="text-sm font-semibold text-indigo-400 mb-3">👨‍⚕️ Danh sách bác sĩ trong hệ thống</h2>
+    <table class="w-full text-xs border-collapse border border-gray-800 mb-6">
+        <thead class="bg-gray-800 text-gray-300">
+        <tr>
+            <th class="p-2 border border-gray-700 text-left">ID</th>
+            <th class="p-2 border border-gray-700 text-left">Họ và tên</th>
+            <th class="p-2 border border-gray-700 text-left">Chuyên khoa</th>
+            <th class="p-2 border border-gray-700 text-left">Bệnh viện</th>
+            <th class="p-2 border border-gray-700 text-left">Trạng thái</th>
+            <th class="p-2 border border-gray-700 text-left">Thao tác</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="hover:bg-gray-800">
+            <td class="p-2 border border-gray-800">D001</td>
+            <td class="p-2 border border-gray-800">BS. Nguyễn Văn An</td>
+            <td class="p-2 border border-gray-800">Tim mạch</td>
+            <td class="p-2 border border-gray-800">BV Chợ Rẫy</td>
+            <td class="p-2 border border-gray-800">
+                <span class="px-2 py-1 bg-green-600 rounded text-white">Hoạt động</span>
+            </td>
+            <td class="p-2 border border-gray-800 space-x-1">
+                <button class="px-2 py-1 bg-indigo-600 rounded text-white">Chi tiết</button>
+                <button class="px-2 py-1 bg-yellow-600 rounded text-white">Khóa</button>
+            </td>
+        </tr>
+        <tr class="hover:bg-gray-800">
+            <td class="p-2 border border-gray-800">D002</td>
+            <td class="p-2 border border-gray-800">BS. Trần Thị Hoa</td>
+            <td class="p-2 border border-gray-800">Nhi khoa</td>
+            <td class="p-2 border border-gray-800">BV Nhi Đồng</td>
+            <td class="p-2 border border-gray-800">
+                <span class="px-2 py-1 bg-yellow-600 rounded text-white">Chờ duyệt</span>
+            </td>
+            <td class="p-2 border border-gray-800 space-x-1">
+                <button class="px-2 py-1 bg-green-600 rounded text-white">Duyệt</button>
+                <button class="px-2 py-1 bg-red-600 rounded text-white">Xóa</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!-- ACTION LOG -->
+    <h2 class="text-sm font-semibold text-indigo-400 mb-3">🧾 Nhật ký hoạt động bác sĩ</h2>
+    <div class="bg-gray-800 rounded-xl border border-gray-700 p-3 space-y-1 h-40 overflow-y-auto text-xs">
+        <div><span class="text-green-400 font-mono">[INFO]</span> 2025-11-01 09:00 — BS. An hoàn tất ca khám #1204</div>
+        <div><span class="text-yellow-400 font-mono">[WARN]</span> 2025-11-01 09:20 — BS. Hoa cập nhật hồ sơ bệnh sai định dạng</div>
+        <div><span class="text-red-400 font-mono">[ERROR]</span> 2025-11-01 09:45 — Lỗi đồng bộ dữ liệu ca khám ID #3201</div>
+        <div><span class="text-green-400 font-mono">[INFO]</span> 2025-11-01 10:00 — BS. Nam được duyệt tài khoản mới</div>
+    </div>
+</section>

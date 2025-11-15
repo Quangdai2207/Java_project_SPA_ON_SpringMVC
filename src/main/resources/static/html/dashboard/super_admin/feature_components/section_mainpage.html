@@ -1,0 +1,61 @@
+<section id="super-admin-dashboard-main-page"
+         class="col-span-4 bg-gray-900 rounded-2xl border border-gray-800 p-6 shadow-md">
+    <!-- STATS -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+        <div class="bg-gray-800 rounded-xl p-4 border border-gray-700">
+            <p class="text-gray-400 text-sm">Tổng số tài khoản</p>
+            <p class="text-2xl font-bold text-indigo-400 mt-1">1,284</p>
+        </div>
+        <div class="bg-gray-800 rounded-xl p-4 border border-gray-700">
+            <p class="text-gray-400 text-sm">Bệnh viện đăng ký</p>
+            <p class="text-2xl font-bold text-teal-400 mt-1">32</p>
+        </div>
+        <div class="bg-gray-800 rounded-xl p-4 border border-gray-700">
+            <p class="text-gray-400 text-sm">Bác sĩ đang hoạt động</p>
+            <p class="text-2xl font-bold text-green-400 mt-1">127</p>
+        </div>
+        <div class="bg-gray-800 rounded-xl p-4 border border-gray-700">
+            <p class="text-gray-400 text-sm">Lượt truy cập hôm nay</p>
+            <p class="text-2xl font-bold text-yellow-400 mt-1">5,423</p>
+        </div>
+    </div>
+
+    <!-- USER TABLE -->
+    <h2 class="text-xl font-semibold text-indigo-400 mb-4">👥 Danh sách tài khoản gần đây</h2>
+    <table class="w-full text-sm border-collapse border border-gray-800 mb-8">
+        <thead class="bg-gray-800 text-gray-300">
+        <tr>
+            <th class="p-2 border border-gray-700 text-left">ID</th>
+            <th class="p-2 border border-gray-700 text-left">Tên người dùng</th>
+            <th class="p-2 border border-gray-700 text-left">Email</th>
+            <th class="p-2 border border-gray-700 text-left">Quyền</th>
+            <th class="p-2 border border-gray-700 text-left">Trạng thái</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="hover:bg-gray-800">
+            <td class="p-2 border border-gray-800">U001</td>
+            <td class="p-2 border border-gray-800">Nguyễn Văn A</td>
+            <td class="p-2 border border-gray-800">admin@gmail.com</td>
+            <td class="p-2 border border-gray-800 text-indigo-400">SUPER_ADMIN</td>
+            <td class="p-2 border border-gray-800"><span
+                    class="px-2 py-1 bg-green-600 rounded text-xs text-white">Kích hoạt</span></td>
+        </tr>
+        <tr class="hover:bg-gray-800">
+            <td class="p-2 border border-gray-800">U002</td>
+            <td class="p-2 border border-gray-800">Trần Thị B</td>
+            <td class="p-2 border border-gray-800">manager@hcmc.vn</td>
+            <td class="p-2 border border-gray-800 text-teal-400">ADMIN</td>
+            <td class="p-2 border border-gray-800"><span
+                    class="px-2 py-1 bg-yellow-600 rounded text-xs text-white">Chờ duyệt</span></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!-- SYSTEM LOG -->
+    <h2 class="text-xl font-semibold text-indigo-400 mb-4">🧾 Log hệ thống</h2>
+    <div id="super-admin-mainpage-log-alerts"
+         class="bg-gray-800 rounded-xl border border-gray-700 p-4 space-y-2 h-48 overflow-y-auto text-xs">
+        <!-- ** Append logs tu socket gui ve cho server -->
+    </div>
+</section>

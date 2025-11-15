@@ -1,0 +1,104 @@
+<section id="super-admin-hospital-management" class=" col-span-4 bg-gray-950 rounded-2xl p-2 shadow-md">
+
+    <!-- STATS -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+        <div class="bg-gray-800 rounded-xl p-3">
+            <p class="text-gray-400 text-xs">Tổng số bệnh viện</p>
+            <p class="text-xl font-bold text-indigo-400 mt-1">32</p>
+        </div>
+        <div class="bg-gray-800 rounded-xl p-3">
+            <p class="text-gray-400 text-xs">Đang hoạt động</p>
+            <p class="text-xl font-bold text-green-400 mt-1">26</p>
+        </div>
+        <div class="bg-gray-800 rounded-xl p-3">
+            <p class="text-gray-400 text-xs">Chờ phê duyệt</p>
+            <p class="text-xl font-bold text-yellow-400 mt-1">4</p>
+        </div>
+        <div class="bg-gray-800 rounded-xl p-3">
+            <p class="text-gray-400 text-xs">Ngừng hoạt động</p>
+            <p class="text-xl font-bold text-red-400 mt-1">2</p>
+        </div>
+    </div>
+
+    <!-- FILTERS -->
+    <div class="bg-gray-800 rounded-xl p-4 mb-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-3">
+        <input type="text" placeholder="Tên bệnh viện"
+               class="bg-gray-900 text-gray-100 text-xs px-3 py-2 rounded-lg focus:ring-2 focus:ring-indigo-500">
+        <input type="text" placeholder="Địa chỉ"
+               class="bg-gray-900 text-gray-100 text-xs px-3 py-2 rounded-lg focus:ring-2 focus:ring-indigo-500">
+        <input type="text" placeholder="Số điện thoại"
+               class="bg-gray-900 text-gray-100 text-xs px-3 py-2 rounded-lg focus:ring-2 focus:ring-indigo-500">
+        <input type="text" placeholder="Người đại diện"
+               class="bg-gray-900 text-gray-100 text-xs px-3 py-2 rounded-lg focus:ring-2 focus:ring-indigo-500">
+        <select class="bg-gray-900 text-gray-100 text-xs px-3 py-2 rounded-lg focus:ring-2 focus:ring-indigo-500">
+            <option value="">Tất cả trạng thái</option>
+            <option value="active">Hoạt động</option>
+            <option value="pending">Chờ duyệt</option>
+            <option value="inactive">Ngừng hoạt động</option>
+        </select>
+        <button class="bg-indigo-600 text-white text-xs px-3 py-2 rounded-lg hover:bg-indigo-500 flex items-center justify-center">
+            <i class="fas fa-search mr-1"></i> Tìm kiếm
+        </button>
+    </div>
+
+    <!-- HOSPITAL TABLE -->
+    <h2 class="text-sm font-semibold text-indigo-400 mb-3">🏥 Danh sách bệnh viện trong hệ thống</h2>
+    <div class="overflow-x-auto rounded-xl bg-gray-800">
+        <table class="w-full text-xs text-left">
+            <thead class="bg-gray-900 text-gray-300">
+            <tr>
+                <th class="p-2">ID</th>
+                <th class="p-2">Tên bệnh viện</th>
+                <th class="p-2">Địa chỉ</th>
+                <th class="p-2">Người quản lý</th>
+                <th class="p-2">Trạng thái</th>
+                <th class="p-2">Thao tác</th>
+            </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-700">
+            <tr class="hover:bg-gray-700/40 transition">
+                <td class="p-2">H001</td>
+                <td class="p-2 font-medium text-indigo-400">BV Chợ Rẫy</td>
+                <td class="p-2">201B Nguyễn Chí Thanh, Q.5, TP.HCM</td>
+                <td class="p-2">Nguyễn Văn Bình</td>
+                <td class="p-2">
+                    <span class="px-2 py-1 bg-green-600 rounded text-white text-xs">Hoạt động</span>
+                </td>
+                <td class="p-2 space-x-1">
+                    <button class="px-2 py-1 bg-indigo-600 rounded text-white text-xs">Chi tiết</button>
+                    <button class="px-2 py-1 bg-yellow-600 rounded text-white text-xs">Khóa</button>
+                </td>
+            </tr>
+            <tr class="hover:bg-gray-700/40 transition">
+                <td class="p-2">H002</td>
+                <td class="p-2 font-medium text-indigo-400">BV Nhi Đồng 1</td>
+                <td class="p-2">341 Sư Vạn Hạnh, Q.10, TP.HCM</td>
+                <td class="p-2">Trần Thị Mai</td>
+                <td class="p-2">
+                    <span class="px-2 py-1 bg-yellow-600 rounded text-white text-xs">Chờ duyệt</span>
+                </td>
+                <td class="p-2 space-x-1">
+                    <button class="px-2 py-1 bg-green-600 rounded text-white text-xs">Duyệt</button>
+                    <button class="px-2 py-1 bg-red-600 rounded text-white text-xs">Xóa</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SYSTEM LOG -->
+    <h2 class="text-sm font-semibold text-indigo-400 mt-6 mb-3">🧾 Nhật ký hệ thống bệnh viện</h2>
+    <div class="bg-gray-800 rounded-xl p-3 space-y-1 h-40 overflow-y-auto text-xs">
+        <div><span class="text-green-400 font-mono">[INFO]</span> 2025-11-01 08:12 — BV Chợ Rẫy cập nhật thông tin thành
+            công
+        </div>
+        <div><span class="text-yellow-400 font-mono">[WARN]</span> 2025-11-01 08:45 — BV Nhi Đồng 1 thiếu giấy phép hợp
+            lệ
+        </div>
+        <div><span class="text-red-400 font-mono">[ERROR]</span> 2025-11-01 09:10 — Lỗi đồng bộ dữ liệu bệnh viện ID
+            #H003
+        </div>
+        <div><span class="text-green-400 font-mono">[INFO]</span> 2025-11-01 09:30 — BV Tâm Đức được duyệt đăng ký mới
+        </div>
+    </div>
+</section>

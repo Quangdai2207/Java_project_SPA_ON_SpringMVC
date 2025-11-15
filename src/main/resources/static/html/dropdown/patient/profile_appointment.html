@@ -1,0 +1,48 @@
+<section id="section-patient-profile-appointment"
+         class=" col-span-3 bg-gray-900 rounded-2xl border border-gray-800 shadow-md p-6">
+    <!-- Header -->
+    <div class="flex items-center justify-between mb-6">
+        <h2 id="title" class="text-2xl font-semibold text-indigo-400">Quản lý hồ sơ bệnh án</h2>
+        <div class="flex items-center gap-3">
+            <input type="date" id="profile-appointment-dropdown-filter-record-date"
+                   class="bg-gray-800 border border-gray-700 text-gray-300 text-sm rounded-lg px-3 py-2 focus:ring-2 focus:ring-indigo-600">
+            <input type="text" id="profile-appointment-dropdown-search-record" placeholder="🔍 Tìm kiếm bác sĩ, khoa, chẩn đoán..."
+                   class="bg-gray-800 border border-gray-700 text-gray-300 text-sm rounded-lg px-3 py-2 focus:ring-2 focus:ring-indigo-600 w-60">
+            <button class="px-4 py-2 bg-green-600 hover:bg-green-700 rounded-xl text-white font-medium">📄 Xuất PDF
+            </button>
+            <button id="btn-patient-dropdown-back" class="px-4 py-2 bg-orange-600 hover:bg-orange-700 rounded-xl text-white font-medium">Quay lại
+            </button>
+        </div>
+    </div>
+
+    <!-- Table -->
+    <div class="overflow-x-auto">
+        <table id="profile-appointment-dropdown-table-data" class="w-full text-sm border-collapse border border-gray-800">
+            <thead class="bg-gray-800 text-gray-300">
+            <tr>
+                <th class="border border-gray-700 p-2 text-left">Mã HS</th>
+                <th class="border border-gray-700 p-2 text-left">Bác sĩ phụ trách</th>
+                <th class="border border-gray-700 p-2 text-left">Chuyên khoa</th>
+                <th class="border border-gray-700 p-2 text-left">Ngày khám</th>
+                <th class="border border-gray-700 p-2 text-left">Chẩn đoán</th>
+                <th class="border border-gray-700 p-2 text-center">Tình trạng</th>
+                <th class="border border-gray-700 p-2 text-center w-40">Hành động</th>
+            </tr>
+            </thead>
+            <tbody class="text-gray-300" id="profile-appointment-table-list">
+            <!-- ** Append html DS ho so benh an -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Pagination -->
+    <div class="flex items-center justify-between mt-6 text-gray-400 text-sm">
+        <p>Hiển thị 1 - 2 trong 8 hồ sơ</p>
+        <div class="flex items-center gap-2">
+            <button class="px-3 py-1 bg-gray-800 rounded-lg hover:bg-gray-700">&laquo;</button>
+            <button class="px-3 py-1 bg-indigo-600 rounded-lg text-white">1</button>
+            <button class="px-3 py-1 bg-gray-800 rounded-lg hover:bg-gray-700">2</button>
+            <button class="px-3 py-1 bg-gray-800 rounded-lg hover:bg-gray-700">&raquo;</button>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,109 @@
+<section id="section-patient-appointment-create"
+         class="min-h-screen bg-gray-950 text-gray-100 py-16 px-6">
+
+    <!-- HEADER -->
+    <div class="max-w-4xl mx-auto flex flex-col sm:flex-row sm:items-center sm:justify-between mb-14">
+        <div>
+            <h1 class="text-3xl font-bold text-indigo-400 flex items-center gap-3">
+                <span class="bg-indigo-600/20 p-3 rounded-2xl shadow-inner">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-indigo-400" fill="none"
+                         viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M8 7V3m8 4V3m-9 8h10m-9 4h8m-6 4h4m-7-8a9 9 0 11-9 9 9 9 0 019-9z"/>
+                    </svg>
+                </span>
+                Đặt lịch khám bệnh
+            </h1>
+            <p class="text-gray-400 mt-2 text-sm">
+                Điền đầy đủ thông tin bên dưới để chúng tôi sắp xếp lịch khám phù hợp nhất cho bạn.
+            </p>
+        </div>
+
+        <button id="form-bookings-back"
+                class="mt-6 sm:mt-0 inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-700 px-5 py-2 rounded-xl font-medium shadow-md transition-all">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24"
+                 stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M15 19l-7-7 7-7"/>
+            </svg>
+            Quay lại
+        </button>
+    </div>
+
+    <!-- FORM -->
+    <div class="max-w-4xl mx-auto bg-gray-900/50 backdrop-blur-lg rounded-3xl shadow-2xl p-12 border border-gray-800">
+        <form action="/patient/appointment/create" method="post" class="space-y-12">
+
+            <!-- PATIENT INFO -->
+            <div>
+                <h2 class="text-xl font-semibold text-indigo-300 mb-8 flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-400" fill="none"
+                         viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M5.121 17.804A7.975 7.975 0 0112 15c1.657 0 3.182.507 4.445 1.372M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    </svg>
+                    Thông tin khám bệnh
+                </h2>
+
+                <div class="grid md:grid-cols-2 gap-x-10 gap-y-8">
+                    <!-- Faculty -->
+                    <div class="flex flex-col">
+                        <label class="text-gray-400 font-medium mb-3 text-sm">Khoa khám</label>
+                        <select id="faculties"
+                                class="w-full bg-gray-800 text-gray-100 px-4 py-3 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none border border-gray-700 hover:border-indigo-500 transition">
+                            <option value="">-- Chọn khoa --</option>
+                        </select>
+                    </div>
+
+                    <!-- Doctor -->
+                    <div class="flex flex-col">
+                        <label class="text-gray-400 font-medium mb-3 text-sm">Bác sĩ phụ trách</label>
+                        <select id="doctor"
+                                class="w-full bg-gray-800 text-gray-100 px-4 py-3 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none border border-gray-700 hover:border-indigo-500 transition">
+                            <option value="">-- Chọn bác sĩ --</option>
+                        </select>
+                    </div>
+
+                    <!-- Date -->
+                    <div class="flex flex-col">
+                        <label class="text-gray-400 font-medium mb-3 text-sm">Ngày khám</label>
+                        <input type="date" name="date"
+                               class="w-full bg-gray-800 text-gray-100 px-4 py-3 rounded-xl border border-gray-700 hover:border-indigo-500 focus:ring-2 focus:ring-indigo-500 outline-none transition">
+                    </div>
+
+                    <!-- Time -->
+                    <div class="flex flex-col">
+                        <label class="text-gray-400 font-medium mb-3 text-sm">Giờ khám</label>
+                        <input type="time" name="time"
+                               class="w-full bg-gray-800 text-gray-100 px-4 py-3 rounded-xl border border-gray-700 hover:border-indigo-500 focus:ring-2 focus:ring-indigo-500 outline-none transition">
+                    </div>
+
+                    <!-- Content -->
+                    <div class="md:col-span-2 flex flex-col">
+                        <label class="text-gray-400 font-medium mb-3 text-sm">Triệu chứng hoặc ghi chú</label>
+                        <textarea name="content" rows="4"
+                                  placeholder="Ví dụ: Đau đầu, chóng mặt, ho kéo dài..."
+                                  class="w-full bg-gray-800 text-gray-100 px-4 py-3 rounded-xl border border-gray-700 hover:border-indigo-500 focus:ring-2 focus:ring-indigo-500 outline-none transition"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACTIONS -->
+            <div class="flex justify-end gap-4 pt-6 border-t border-gray-800">
+                <button type="reset"
+                        class="px-6 py-3 rounded-xl bg-gray-700 hover:bg-gray-600 text-gray-200 font-medium transition-all shadow-sm">
+                    Làm mới
+                </button>
+                <button type="submit"
+                        class="px-8 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold shadow-md transition-all focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-950">
+                    Xác nhận đặt lịch
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <!-- FOOTNOTE -->
+    <div class="mt-14 text-sm text-gray-500 text-center">
+        <p>* Sau khi đặt lịch, bạn sẽ nhận được thông báo xác nhận qua hệ thống hoặc email.</p>
+    </div>
+</section>

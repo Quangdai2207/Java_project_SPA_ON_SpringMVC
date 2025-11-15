@@ -1,0 +1,161 @@
+<section id="portal-doctor-prescription" class=" space-y-4">
+    <!-- Header -->
+    <div class="flex justify-end items-end">
+        <button id="btn-new-prescription"
+                class="bg-purple-800 hover:bg-purple-900 text-xs px-4 py-2 rounded-md font-medium transition">
+            + Kê đơn mới
+        </button>
+    </div>
+
+    <!-- Bộ lọc -->
+    <div class="bg-gray-900 p-4 rounded-xl border border-gray-800 flex flex-wrap items-center gap-4">
+        <input type="text" id="search-patient" placeholder="🔍 Tìm bệnh nhân..."
+               class="flex-1 bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 focus:outline-none focus:border-blue-500">
+        <select id="filter-status"
+                class="bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 text-gray-300 focus:outline-none focus:border-blue-500">
+            <option value="">Tất cả trạng thái</option>
+            <option value="new">Mới kê</option>
+            <option value="dispensed">Đã phát</option>
+            <option value="cancelled">Đã hủy</option>
+        </select>
+        <button id="btn-filter"
+                class="bg-indigo-600 hover:bg-indigo-500 px-4 py-2 rounded-lg font-medium transition">
+            Lọc
+        </button>
+    </div>
+
+    <!-- Danh sách đơn thuốc -->
+    <div class="bg-gray-900 rounded-2xl shadow border border-gray-800 overflow-hidden">
+        <table class="min-w-full divide-y divide-gray-800">
+            <thead class="bg-gray-800 text-gray-300 text-sm uppercase">
+            <tr>
+                <th class="px-6 py-3 text-left font-semibold">Mã đơn</th>
+                <th class="px-6 py-3 text-left font-semibold">Bệnh nhân</th>
+                <th class="px-6 py-3 text-left font-semibold">Ngày kê</th>
+                <th class="px-6 py-3 text-left font-semibold">Số thuốc</th>
+                <th class="px-6 py-3 text-left font-semibold">Trạng thái</th>
+                <th class="px-6 py-3 text-center font-semibold">Hành động</th>
+            </tr>
+            </thead>
+            <tbody id="prescription-list" class="divide-y divide-gray-800 text-sm">
+            <!-- Row mẫu -->
+            <tr class="hover:bg-gray-800 transition">
+                <td class="px-6 py-4 font-medium text-blue-400">#RX-2031</td>
+                <td class="px-6 py-4">Phạm Thị D</td>
+                <td class="px-6 py-4">02/11/2025</td>
+                <td class="px-6 py-4">5 thuốc</td>
+                <td class="px-6 py-4">
+                        <span class="px-3 py-1 rounded-full text-xs bg-yellow-700/30 text-yellow-400">
+                            Chờ phát
+                        </span>
+                </td>
+                <td class="px-6 py-4 text-center space-x-2">
+                    <button class="px-3 py-1 bg-blue-600 hover:bg-blue-500 rounded-lg text-sm btn-view">Xem</button>
+                    <button class="px-3 py-1 bg-yellow-600 hover:bg-yellow-500 rounded-lg text-sm btn-edit">Sửa</button>
+                    <button class="px-3 py-1 bg-red-600 hover:bg-red-500 rounded-lg text-sm btn-delete">Xóa</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Chi tiết đơn thuốc -->
+    <div id="prescription-detail" class="hidden bg-gray-900 border border-gray-800 rounded-2xl p-6 space-y-4">
+        <div class="flex justify-between items-center">
+            <h3 class="text-xl font-semibold text-indigo-400">Chi tiết đơn thuốc</h3>
+            <button id="btn-close-detail" class="text-gray-400 hover:text-gray-200">✖ Đóng</button>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+            <div><span class="text-gray-400">Mã đơn:</span> <span class="font-medium text-gray-100">#RX-2031</span></div>
+            <div><span class="text-gray-400">Bệnh nhân:</span> <span class="font-medium text-gray-100">Phạm Thị D</span></div>
+            <div><span class="text-gray-400">Ngày kê:</span> <span class="font-medium text-gray-100">02/11/2025</span></div>
+            <div><span class="text-gray-400">Trạng thái:</span>
+                <span class="px-2 py-1 bg-yellow-700/30 rounded-full text-yellow-400 text-xs">Chờ phát</span>
+            </div>
+        </div>
+
+        <table class="w-full mt-4 border-collapse border border-gray-800 text-sm">
+            <thead class="bg-gray-800 text-gray-300">
+            <tr>
+                <th class="border border-gray-700 p-2 text-left">Tên thuốc</th>
+                <th class="border border-gray-700 p-2 text-left">Liều lượng</th>
+                <th class="border border-gray-700 p-2 text-left">Số ngày</th>
+                <th class="border border-gray-700 p-2 text-left">Ghi chú</th>
+            </tr>
+            </thead>
+            <tbody class="text-gray-200">
+            <tr>
+                <td class="border border-gray-800 p-2">Paracetamol</td>
+                <td class="border border-gray-800 p-2">500mg</td>
+                <td class="border border-gray-800 p-2">5 ngày</td>
+                <td class="border border-gray-800 p-2">Uống sau ăn</td>
+            </tr>
+            <tr>
+                <td class="border border-gray-800 p-2">Amoxicillin</td>
+                <td class="border border-gray-800 p-2">250mg</td>
+                <td class="border border-gray-800 p-2">7 ngày</td>
+                <td class="border border-gray-800 p-2">Trước bữa ăn</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div>
+            <h4 class="text-gray-400 mt-4 mb-2 text-sm">Ghi chú của bác sĩ:</h4>
+            <p class="bg-gray-800 p-3 rounded-lg text-gray-300">
+                Bệnh nhân cần uống đủ liều, theo dõi phản ứng thuốc, tái khám sau 7 ngày.
+            </p>
+        </div>
+    </div>
+
+    <!-- Form tạo đơn thuốc -->
+    <div id="form-new-prescription" class="hidden bg-gray-900 border border-gray-800 rounded-2xl p-6 space-y-4">
+        <h3 class="text-xl font-semibold text-blue-400 mb-2">Kê đơn thuốc mới</h3>
+        <form id="create-prescription-form" class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-gray-400 text-sm mb-1">Tên bệnh nhân</label>
+                    <input type="text" name="patientName"
+                           class="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 focus:outline-none focus:border-blue-500"
+                           placeholder="VD: Nguyễn Văn B">
+                </div>
+                <div>
+                    <label class="block text-gray-400 text-sm mb-1">Ngày kê</label>
+                    <input type="date" name="prescriptionDate"
+                           class="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 focus:outline-none focus:border-blue-500">
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-gray-400 text-sm mb-1">Ghi chú bác sĩ</label>
+                <textarea name="doctorNote" rows="3"
+                          class="w-full bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 focus:outline-none focus:border-blue-500"
+                          placeholder="Nhập hướng dẫn cho bệnh nhân..."></textarea>
+            </div>
+
+            <div>
+                <label class="block text-gray-400 text-sm mb-1">Danh sách thuốc</label>
+                <div id="medicine-list" class="space-y-2">
+                    <div class="flex items-center space-x-2">
+                        <input type="text" name="medicineName[]" placeholder="Tên thuốc"
+                               class="flex-1 bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 focus:outline-none focus:border-blue-500">
+                        <input type="text" name="dosage[]" placeholder="Liều"
+                               class="w-32 bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 focus:outline-none focus:border-blue-500">
+                        <input type="text" name="days[]" placeholder="Số ngày"
+                               class="w-24 bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 focus:outline-none focus:border-blue-500">
+                        <button type="button"
+                                class="bg-green-600 hover:bg-green-500 px-3 py-2 rounded-lg text-sm add-medicine">
+                            +
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex justify-end space-x-3">
+                <button type="button" id="btn-cancel-create"
+                        class="bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded-lg">Hủy</button>
+                <button type="submit"
+                        class="bg-blue-600 hover:bg-blue-500 px-5 py-2 rounded-lg font-medium">Lưu đơn</button>
+            </div>
+        </form>
+    </div>
+</section>

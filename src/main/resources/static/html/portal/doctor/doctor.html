@@ -1,0 +1,31 @@
+<div class="min-h-screen flex bg-gray-950 text-gray-100">
+    <!-- Sidebar -->
+    <aside class="w-64  border-r border-gray-800 p-6 space-y-6 bg-gray-950">
+        <h1 class="text-2xl font-bold text-blue-400">Doctor Portal</h1>
+        <nav class="space-y-3">
+            <button id="doctor_mainpage" href="#" class="w-full text-left px-3 py-2 cursor-pointer bg-indigo-600 text-white rounded-lg font-medium">Dashboard</button>
+            <button id="doctor_my_patient" href="#" class="w-full text-left px-3 py-2 hover:bg-gray-800 rounded-lg cursor-pointer">Bệnh nhân của tôi</button>
+            <button id="doctor_appointment" href="#" class="w-full text-left px-3 py-2 hover:bg-gray-800 rounded-lg cursor-pointer">Lịch khám</button>
+            <button id="doctor_prescription" href="#" class="w-full text-left px-3 py-2 hover:bg-gray-800 rounded-lg cursor-pointer">Đơn thuốc</button>
+            <button id="doctor_medical_record" href="#" class="w-full text-left px-3 py-2 hover:bg-gray-800 rounded-lg cursor-pointer">Hồ sơ y tế</button>
+            <button id="doctor_system_report" href="#" class="w-full text-left px-3 py-2 hover:bg-gray-800 rounded-lg cursor-pointer">Báo cáo & Thống kê</button>
+            <a href="/auth/logout" class="block px-3 py-2 rounded-lg hover:bg-gray-700 text-red-400">Đăng xuất</a>
+        </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="flex-1 pl-3 pt-4">
+        <header class="flex justify-end items-center mb-6">
+            <div class="flex items-center space-x-4">
+                <span class="text-gray-400">Hi, <span id="doctor-portal-name"
+                                                      class="text-blue-400 font-medium">BS. Nguyễn Văn A</span></span>
+                <img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png" alt="avatar"
+                     class="w-10 h-10 rounded-full border border-gray-600">
+            </div>
+        </header>
+        <div id="doctor-portal-main-content"
+             class="col-span-4 space-y-6 overflow-y-auto bg-gray-950 rounded-2xl">
+            <!-- ** noi dung duoc append vao day -->
+        </div>
+    </main>
+</div>

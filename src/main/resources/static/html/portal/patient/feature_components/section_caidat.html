@@ -1,0 +1,227 @@
+<section id="section-caidat" class="col-span-3 bg-gray-900 rounded-2xl border border-gray-800 shadow-md p-6">
+    <!-- HEADER -->
+    <div class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl font-semibold text-indigo-400">Trung tâm cài đặt bệnh nhân</h2>
+    </div>
+
+    <!-- PERSONAL INFO -->
+    <div class="bg-gray-800 rounded-xl border border-gray-700 p-5 mb-8">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">👤 Thông tin cá nhân</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+                <label class="text-gray-400 text-sm">Họ và tên</label>
+                <input type="text" value="Nguyễn Văn A" class="w-full mt-1 bg-gray-900 text-gray-200 border border-gray-700 rounded-lg p-2 focus:ring-2 focus:ring-indigo-500 outline-none">
+            </div>
+            <div>
+                <label class="text-gray-400 text-sm">Email</label>
+                <input type="email" value="nguyenvana@example.com" class="w-full mt-1 bg-gray-900 text-gray-200 border border-gray-700 rounded-lg p-2 focus:ring-2 focus:ring-indigo-500 outline-none">
+            </div>
+            <div>
+                <label class="text-gray-400 text-sm">Số điện thoại</label>
+                <input type="text" value="0901 234 567" class="w-full mt-1 bg-gray-900 text-gray-200 border border-gray-700 rounded-lg p-2 focus:ring-2 focus:ring-indigo-500 outline-none">
+            </div>
+            <div>
+                <label class="text-gray-400 text-sm">Ngày sinh</label>
+                <input type="date" class="w-full mt-1 bg-gray-900 text-gray-200 border border-gray-700 rounded-lg p-2 focus:ring-2 focus:ring-indigo-500 outline-none">
+            </div>
+        </div>
+        <div class="flex justify-end mt-4">
+            <button class="bg-green-600 hover:bg-green-500 text-white text-sm font-semibold rounded-lg px-4 py-2">
+                💾 Lưu thông tin
+            </button>
+        </div>
+    </div>
+
+    <!-- PHONE INFO -->
+    <div class="bg-gray-800 rounded-xl border border-gray-700 p-5 mb-8">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">📱 Thông tin số điện thoại</h3>
+        <div>
+            <label class="text-gray-400 text-sm">Số điện thoại</label>
+            <input type="text" value="0901 234 567" class="w-full mt-1 bg-gray-900 text-gray-200 border border-gray-700 rounded-lg p-2 focus:ring-2 focus:ring-indigo-500 outline-none">
+        </div>
+        <div class="flex justify-end mt-4">
+            <button class="bg-green-600 hover:bg-green-500 text-white text-sm font-semibold rounded-lg px-4 py-2">
+                💾 Lưu số điện thoại
+            </button>
+        </div>
+    </div>
+
+    <!-- ADDRESS INFO -->
+    <div class="bg-gray-800 rounded-xl border border-gray-700 p-5 mb-8">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">🏠 Thông tin địa chỉ</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+                <label class="text-gray-400 text-sm">Số nhà & Tên đường</label>
+                <input type="text" value="123 Đường ABC" class="w-full mt-1 bg-gray-900 text-gray-200 border border-gray-700 rounded-lg p-2 focus:ring-2 focus:ring-indigo-500 outline-none">
+            </div>
+            <div>
+                <label class="text-gray-400 text-sm">Phường/Xã</label>
+                <input type="text" value="Phường XYZ" class="w-full mt-1 bg-gray-900 text-gray-200 border border-gray-700 rounded-lg p-2 focus:ring-2 focus:ring-indigo-500 outline-none">
+            </div>
+            <div>
+                <label class="text-gray-400 text-sm">Quận/Huyện</label>
+                <input type="text" value="Quận 1" class="w-full mt-1 bg-gray-900 text-gray-200 border border-gray-700 rounded-lg p-2 focus:ring-2 focus:ring-indigo-500 outline-none">
+            </div>
+            <div>
+                <label class="text-gray-400 text-sm">Tỉnh/Thành phố</label>
+                <input type="text" value="Hà Nội" class="w-full mt-1 bg-gray-900 text-gray-200 border border-gray-700 rounded-lg p-2 focus:ring-2 focus:ring-indigo-500 outline-none">
+            </div>
+        </div>
+        <div class="flex justify-end mt-4">
+            <button class="bg-green-600 hover:bg-green-500 text-white text-sm font-semibold rounded-lg px-4 py-2">
+                💾 Lưu địa chỉ
+            </button>
+        </div>
+    </div>
+
+    <!-- MEDICAL INFO -->
+    <div class="bg-gray-800 rounded-xl border border-gray-700 p-5 mb-8">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">⚕️ Cập nhật thông tin y tế</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+                <label class="text-gray-400 text-sm">Nhóm máu</label>
+                <select class="w-full mt-1 bg-gray-900 text-gray-200 border border-gray-700 rounded-lg p-2 focus:ring-2 focus:ring-green-500 outline-none">
+                    <option>Chọn nhóm máu</option>
+                    <option>A</option>
+                    <option>B</option>
+                    <option>AB</option>
+                    <option>O</option>
+                </select>
+            </div>
+            <div>
+                <label class="text-gray-400 text-sm">Chiều cao (cm)</label>
+                <input type="number" placeholder="Ví dụ: 170" class="w-full mt-1 bg-gray-900 text-gray-200 border border-gray-700 rounded-lg p-2 focus:ring-2 focus:ring-green-500 outline-none">
+            </div>
+            <div>
+                <label class="text-gray-400 text-sm">Cân nặng (kg)</label>
+                <input type="number" placeholder="Ví dụ: 65" class="w-full mt-1 bg-gray-900 text-gray-200 border border-gray-700 rounded-lg p-2 focus:ring-2 focus:ring-green-500 outline-none">
+            </div>
+            <div>
+                <label class="text-gray-400 text-sm">Tiểu sử bệnh nền</label>
+                <input type="text" placeholder="Ví dụ: Tăng huyết áp, tiểu đường..." class="w-full mt-1 bg-gray-900 text-gray-200 border border-gray-700 rounded-lg p-2 focus:ring-2 focus:ring-green-500 outline-none">
+            </div>
+            <div class="md:col-span-2">
+                <label class="text-gray-400 text-sm">Thói quen sinh hoạt</label>
+                <textarea rows="2" placeholder="Ví dụ: Hút thuốc, uống rượu, ăn chay..." class="w-full mt-1 bg-gray-900 text-gray-200 border border-gray-700 rounded-lg p-2 focus:ring-2 focus:ring-green-500 outline-none"></textarea>
+            </div>
+            <div class="md:col-span-2">
+                <label class="text-gray-400 text-sm">Dị ứng</label>
+                <textarea rows="2" placeholder="Ví dụ: Dị ứng hải sản, phấn hoa..." class="w-full mt-1 bg-gray-900 text-gray-200 border border-gray-700 rounded-lg p-2 focus:ring-2 focus:ring-green-500 outline-none"></textarea>
+            </div>
+        </div>
+        <div class="flex justify-end mt-4">
+            <button class="bg-green-600 hover:bg-green-500 text-white text-sm font-semibold rounded-lg px-4 py-2">
+                💾 Cập nhật thông tin y tế
+            </button>
+        </div>
+    </div>
+
+    <!-- SECURITY -->
+    <div class="bg-gray-800 rounded-xl border border-gray-700 p-5 mb-8">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">🔒 Bảo mật tài khoản</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div>
+                <label class="text-gray-400 text-sm">Mật khẩu hiện tại</label>
+                <input type="password" placeholder="••••••••" class="w-full mt-1 bg-gray-900 text-gray-200 border border-gray-700 rounded-lg p-2 focus:ring-2 focus:ring-pink-500 outline-none">
+            </div>
+            <div>
+                <label class="text-gray-400 text-sm">Mật khẩu mới</label>
+                <input type="password" placeholder="••••••••" class="w-full mt-1 bg-gray-900 text-gray-200 border border-gray-700 rounded-lg p-2 focus:ring-2 focus:ring-pink-500 outline-none">
+            </div>
+            <div>
+                <label class="text-gray-400 text-sm">Xác nhận mật khẩu mới</label>
+                <input type="password" placeholder="••••••••" class="w-full mt-1 bg-gray-900 text-gray-200 border border-gray-700 rounded-lg p-2 focus:ring-2 focus:ring-pink-500 outline-none">
+            </div>
+        </div>
+        <div class="flex justify-end mt-4">
+            <button class="bg-pink-600 hover:bg-pink-500 text-white text-sm font-semibold rounded-lg px-4 py-2">
+                🔄 Cập nhật mật khẩu
+            </button>
+        </div>
+    </div>
+
+    <!-- NOTIFICATIONS -->
+    <div class="bg-gray-800 rounded-xl border border-gray-700 p-5 mb-8">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">🔔 Cài đặt thông báo</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-300 text-sm">
+            <label class="flex items-center space-x-2">
+                <input type="checkbox" checked class="w-4 h-4 accent-indigo-600">
+                <span>Thông báo khi có lịch khám mới</span>
+            </label>
+            <label class="flex items-center space-x-2">
+                <input type="checkbox" checked class="w-4 h-4 accent-indigo-600">
+                <span>Thông báo khi có kết quả xét nghiệm</span>
+            </label>
+            <label class="flex items-center space-x-2">
+                <input type="checkbox" class="w-4 h-4 accent-indigo-600">
+                <span>Nhận email khuyến mãi & ưu đãi</span>
+            </label>
+        </div>
+        <div class="flex justify-end mt-4">
+            <button class="bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold rounded-lg px-4 py-2">
+                💾 Lưu thông báo
+            </button>
+        </div>
+    </div>
+
+    <!-- INTERFACE & SYSTEM -->
+    <div class="bg-gray-800 rounded-xl border border-gray-700 p-5 mb-8">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">🎨 Giao diện & hệ thống</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-gray-300">
+            <label class="flex items-center justify-between">
+                <span>Chế độ giao diện</span>
+                <select class="bg-gray-900 text-gray-200 border border-gray-700 rounded-lg px-2 py-1 focus:ring-2 focus:ring-indigo-500">
+                    <option>Dark Mode</option>
+                    <option>Light Mode</option>
+                </select>
+            </label>
+            <label class="flex items-center justify-between">
+                <span>Ngôn ngữ</span>
+                <select class="bg-gray-900 text-gray-200 border border-gray-700 rounded-lg px-2 py-1 focus:ring-2 focus:ring-indigo-500">
+                    <option>Tiếng Việt</option>
+                    <option>English</option>
+                </select>
+            </label>
+            <label class="flex items-center justify-between">
+                <span>Kích hoạt hiệu suất cao</span>
+                <input type="checkbox" class="w-4 h-4 accent-indigo-600">
+            </label>
+        </div>
+    </div>
+
+    <!-- PRIVACY -->
+    <div class="bg-gray-800 rounded-xl border border-gray-700 p-5 mb-8">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">🧱 Quyền riêng tư</h3>
+        <p class="text-gray-400 text-sm mb-3">Kiểm soát dữ liệu cá nhân và quyền truy cập của bạn.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-300">
+            <label class="flex items-center space-x-2">
+                <input type="checkbox" checked class="w-4 h-4 accent-indigo-600">
+                <span>Cho phép sử dụng dữ liệu ẩn danh để cải thiện dịch vụ</span>
+            </label>
+            <label class="flex items-center space-x-2">
+                <input type="checkbox" class="w-4 h-4 accent-indigo-600">
+                <span>Không chia sẻ dữ liệu với bên thứ ba</span>
+            </label>
+        </div>
+        <div class="flex justify-end mt-4">
+            <button class="bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold rounded-lg px-4 py-2">
+                💾 Lưu quyền riêng tư
+            </button>
+        </div>
+    </div>
+
+    <!-- LOGIN DEVICES -->
+    <div class="bg-gray-800 rounded-xl border border-gray-700 p-5">
+        <h3 class="text-lg font-semibold text-blue-400 mb-4">💻 Thiết bị đang đăng nhập</h3>
+        <div class="space-y-3 text-sm text-gray-300">
+            <div class="flex justify-between items-center bg-gray-900 rounded-lg p-2 border border-gray-700">
+                <span>MacBook Pro - Chrome</span>
+                <span class="text-xs text-green-500">Đang hoạt động</span>
+            </div>
+            <div class="flex justify-between items-center bg-gray-900 rounded-lg p-2 border border-gray-700">
+                <span>iPhone 14 - Safari</span>
+                <button class="text-xs text-red-400 hover:text-red-600 transition">Đăng xuất</button>
+            </div>
+        </div>
+    </div>
+</section>

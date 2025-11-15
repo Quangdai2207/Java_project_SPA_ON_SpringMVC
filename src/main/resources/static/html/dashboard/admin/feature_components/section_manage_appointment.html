@@ -1,0 +1,78 @@
+<section id="section-admin-dashboard-appointment" class="col-span-4 bg-gray-900 rounded-2xl border border-gray-800 p-6 shadow-md">
+    <!-- HEADER FILTER -->
+    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-6">
+        <select id="filter-status" class="bg-gray-800 border border-gray-700 rounded-lg p-2 text-sm text-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            <option value="">Tất cả trạng thái</option>
+            <option value="0">Chờ duyệt</option>
+            <option value="1">Đã xác nhận</option>
+            <option value="2">Hoàn thành</option>
+            <option value="3">Đã hủy</option>
+        </select>
+
+        <select id="filter-faculty" class="bg-gray-800 border border-gray-700 rounded-lg p-2 text-sm text-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            <option value="">Tất cả khoa</option>
+            <option value="1">Nội tổng hợp</option>
+            <option value="2">Tim mạch</option>
+            <option value="3">Nhi khoa</option>
+        </select>
+
+        <input type="date" id="filter-date" class="bg-gray-800 border border-gray-700 rounded-lg p-2 text-sm text-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+
+        <div class="flex gap-2">
+            <input type="text" id="search-appointment" placeholder="Tìm kiếm bác sĩ hoặc bệnh nhân..." class="flex-1 bg-gray-800 border border-gray-700 rounded-lg p-2 text-sm text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            <button id="btn-search" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg text-sm">Tìm</button>
+        </div>
+    </div>
+
+    <!-- TABLE -->
+    <h2 class="text-xl font-semibold text-blue-400 mb-4">📋 Danh sách lịch khám</h2>
+    <table class="w-full text-sm border-collapse border border-gray-800 mb-8">
+        <thead class="bg-gray-800 text-gray-300">
+        <tr>
+            <th class="p-2 border border-gray-700 text-left">Mã</th>
+            <th class="p-2 border border-gray-700 text-left">Bác sĩ</th>
+            <th class="p-2 border border-gray-700 text-left">Bệnh nhân</th>
+            <th class="p-2 border border-gray-700 text-left">Khoa</th>
+            <th class="p-2 border border-gray-700 text-left">Ngày</th>
+            <th class="p-2 border border-gray-700 text-left">Giờ</th>
+            <th class="p-2 border border-gray-700 text-left">Trạng thái</th>
+            <th class="p-2 border border-gray-700 text-center">Hành động</th>
+        </tr>
+        </thead>
+        <tbody id="admin-appointment-table">
+        <tr class="hover:bg-gray-800 transition">
+            <td class="p-2 border border-gray-800">AP-2025-001</td>
+            <td class="p-2 border border-gray-800">BS. Nguyễn Văn A</td>
+            <td class="p-2 border border-gray-800">Trần Văn B</td>
+            <td class="p-2 border border-gray-800">Tim mạch</td>
+            <td class="p-2 border border-gray-800">05/11/2025</td>
+            <td class="p-2 border border-gray-800">09:00</td>
+            <td class="p-2 border border-gray-800"><span class="px-2 py-1 bg-yellow-600 rounded text-xs text-white">Chờ duyệt</span></td>
+            <td class="p-2 border border-gray-800 text-center">
+                <button class="bg-green-600 hover:bg-green-500 text-xs px-2 py-1 rounded">Duyệt</button>
+                <button class="bg-blue-600 hover:bg-blue-500 text-xs px-2 py-1 rounded">Xem</button>
+                <button class="bg-red-600 hover:bg-red-500 text-xs px-2 py-1 rounded">Hủy</button>
+            </td>
+        </tr>
+        <tr class="hover:bg-gray-800 transition">
+            <td class="p-2 border border-gray-800">AP-2025-002</td>
+            <td class="p-2 border border-gray-800">BS. Lê Thị C</td>
+            <td class="p-2 border border-gray-800">Nguyễn Văn D</td>
+            <td class="p-2 border border-gray-800">Nhi khoa</td>
+            <td class="p-2 border border-gray-800">06/11/2025</td>
+            <td class="p-2 border border-gray-800">10:30</td>
+            <td class="p-2 border border-gray-800"><span class="px-2 py-1 bg-green-600 rounded text-xs text-white">Đã xác nhận</span></td>
+            <td class="p-2 border border-gray-800 text-center">
+                <button class="bg-blue-600 hover:bg-blue-500 text-xs px-2 py-1 rounded">Xem</button>
+                <button class="bg-gray-600 hover:bg-gray-500 text-xs px-2 py-1 rounded">Hoàn tất</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!-- ACTIONS -->
+    <div class="flex justify-between mt-6">
+        <button id="btn-back-admin-appointment" class="px-4 py-2 bg-orange-600 hover:bg-orange-700 rounded-lg text-white font-medium">Quay lại</button>
+        <button id="btn-export-admin-appointment" class="px-4 py-2 bg-teal-600 hover:bg-teal-700 rounded-lg text-white font-medium">Xuất file PDF</button>
+    </div>
+</section>

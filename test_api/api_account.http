@@ -1,0 +1,19 @@
+GET {{host}}/list
+
+###
+POST {{host}}/register
+Content-Type: {{json}}
+
+{
+  "firstName": "Pham Minh",
+  "lastName": "Khang",
+  "email": "minhkhang@gmail.com",
+  "dob": "20/10/1998",
+  "password": "123456",
+  "gender": 1
+}
+
+###
+POST {{host}}/init-default-super-admin
+Content-Type: {{json}}
+

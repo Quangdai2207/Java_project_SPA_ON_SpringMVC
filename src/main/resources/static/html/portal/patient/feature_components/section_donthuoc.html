@@ -1,0 +1,99 @@
+<section id="section-donthuoc" class="col-span-3 bg-gray-900 rounded-2xl border border-gray-800 shadow-md p-6">
+    <!-- Header -->
+    <div class="flex justify-between items-center mb-6">
+        <h2 class="text-xl font-semibold text-indigo-400">💊 Đơn thuốc của bạn</h2>
+
+        <div class="flex items-center gap-3">
+            <select class="bg-gray-800 text-gray-300 rounded-lg px-3 py-2 text-sm border border-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                <option>Tất cả</option>
+                <option>Đang sử dụng</option>
+                <option>Đã hết hạn</option>
+            </select>
+            <button class="px-4 py-2 text-sm rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-medium transition">
+                + Thêm đơn mới
+            </button>
+        </div>
+    </div>
+
+    <!-- Prescription List -->
+    <div class="space-y-4">
+        <!-- Prescription Card 1 -->
+        <div class="p-5 bg-gray-800 rounded-xl border border-gray-700 hover:border-indigo-500 transition">
+            <div class="flex flex-col md:flex-row md:justify-between md:items-center">
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-100">Đơn thuốc số #DH-2301</h3>
+                    <p class="text-sm text-gray-400 mt-1">
+                        Bác sĩ kê: <span class="text-gray-300 font-medium">Nguyễn Văn A</span> | Ngày kê: 02/11/2025
+                    </p>
+                </div>
+                <span class="mt-3 md:mt-0 text-xs px-3 py-1 bg-green-600 text-white rounded-full">Đang sử dụng</span>
+            </div>
+
+            <table class="w-full text-sm border-collapse border border-gray-800 mt-4">
+                <thead class="bg-gray-800 text-gray-300">
+                <tr>
+                    <th class="border border-gray-700 p-2 text-left">Tên thuốc</th>
+                    <th class="border border-gray-700 p-2 text-left">Liều lượng</th>
+                    <th class="border border-gray-700 p-2 text-left">Tần suất</th>
+                    <th class="border border-gray-700 p-2 text-left">Ghi chú</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="border border-gray-800 p-2">Paracetamol</td>
+                    <td class="border border-gray-800 p-2">500mg</td>
+                    <td class="border border-gray-800 p-2">2 lần/ngày</td>
+                    <td class="border border-gray-800 p-2 text-gray-400">Sau bữa ăn</td>
+                </tr>
+                <tr>
+                    <td class="border border-gray-800 p-2">Amoxicillin</td>
+                    <td class="border border-gray-800 p-2">250mg</td>
+                    <td class="border border-gray-800 p-2">3 lần/ngày</td>
+                    <td class="border border-gray-800 p-2 text-gray-400">Trước khi ngủ</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <div class="flex justify-end gap-3 mt-4">
+                <button class="text-sm px-3 py-2 rounded-lg bg-gray-700 hover:bg-gray-600 text-gray-300 transition">Xem chi tiết</button>
+                <button class="text-sm px-3 py-2 rounded-lg bg-red-600 hover:bg-red-700 text-white transition">Ngừng sử dụng</button>
+            </div>
+        </div>
+
+        <!-- Prescription Card 2 -->
+        <div class="p-5 bg-gray-800 rounded-xl border border-gray-700 hover:border-indigo-500 transition">
+            <div class="flex flex-col md:flex-row md:justify-between md:items-center">
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-100">Đơn thuốc số #DH-2298</h3>
+                    <p class="text-sm text-gray-400 mt-1">
+                        Bác sĩ kê: <span class="text-gray-300 font-medium">Trần Thị B</span> | Ngày kê: 15/10/2025
+                    </p>
+                </div>
+                <span class="mt-3 md:mt-0 text-xs px-3 py-1 bg-gray-700 text-gray-300 rounded-full">Đã hết hạn</span>
+            </div>
+
+            <table class="w-full text-sm border-collapse border border-gray-800 mt-4">
+                <thead class="bg-gray-800 text-gray-300">
+                <tr>
+                    <th class="border border-gray-700 p-2 text-left">Tên thuốc</th>
+                    <th class="border border-gray-700 p-2 text-left">Liều lượng</th>
+                    <th class="border border-gray-700 p-2 text-left">Tần suất</th>
+                    <th class="border border-gray-700 p-2 text-left">Ghi chú</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="border border-gray-800 p-2">Vitamin C</td>
+                    <td class="border border-gray-800 p-2">1000mg</td>
+                    <td class="border border-gray-800 p-2">1 lần/ngày</td>
+                    <td class="border border-gray-800 p-2 text-gray-400">Buổi sáng</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <div class="flex justify-end gap-3 mt-4">
+                <button class="text-sm px-3 py-2 rounded-lg bg-gray-700 hover:bg-gray-600 text-gray-300 transition">Xem lại</button>
+            </div>
+        </div>
+    </div>
+</section>

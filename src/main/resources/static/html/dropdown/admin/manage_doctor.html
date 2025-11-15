@@ -1,0 +1,85 @@
+<section id="section-admin-manage-doctor" class=" col-span-3 bg-gray-900 rounded-2xl border border-gray-800 shadow-md p-6 text-gray-200">
+    <!-- Header -->
+    <div class="flex items-center justify-between mb-6">
+        <h2 class="text-2xl font-semibold text-indigo-400">🩺 Quản lý bác sĩ</h2>
+        <div class="flex items-center gap-3">
+            <button id="btn-admin-dropdown-back" class="px-4 py-2 bg-orange-600 hover:bg-orange-700 rounded-xl text-white font-medium">
+                ← Quay lại
+            </button>
+            <button id="btn-add-doctor" class="px-4 py-2 bg-green-600 hover:bg-green-700 rounded-xl text-white font-medium">
+                + Thêm bác sĩ mới
+            </button>
+        </div>
+    </div>
+
+    <!-- Tìm kiếm & lọc -->
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+        <input
+                id="search-doctor"
+                type="text"
+                placeholder="🔍 Tìm kiếm theo tên, email hoặc mã bác sĩ..."
+                class="w-full md:w-1/2 px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-indigo-500 outline-none text-gray-200 placeholder-gray-500"
+        />
+        <select id="filter-specialty" class="w-full md:w-1/4 px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-gray-200 focus:ring-2 focus:ring-indigo-500">
+            <option value="">-- Chuyên khoa --</option>
+            <option value="cardiology">Tim mạch</option>
+            <option value="ophthalmology">Mắt</option>
+            <option value="dermatology">Da liễu</option>
+            <option value="general">Nội tổng quát</option>
+        </select>
+        <select id="filter-status-doctor" class="w-full md:w-1/4 px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-gray-200 focus:ring-2 focus:ring-indigo-500">
+            <option value="">-- Trạng thái --</option>
+            <option value="active">Đang hoạt động</option>
+            <option value="inactive">Ngưng hoạt động</option>
+        </select>
+    </div>
+
+    <!-- Bảng danh sách bác sĩ -->
+    <div class="overflow-x-auto rounded-lg border border-gray-700 shadow-inner">
+        <table class="w-full text-left border-collapse">
+            <thead class="bg-gray-800 text-gray-300 text-sm uppercase tracking-wide">
+            <tr>
+                <th class="px-4 py-3 border-b border-gray-700">#</th>
+                <th class="px-4 py-3 border-b border-gray-700">Mã BS</th>
+                <th class="px-4 py-3 border-b border-gray-700">Tên bác sĩ</th>
+                <th class="px-4 py-3 border-b border-gray-700">Chuyên khoa</th>
+                <th class="px-4 py-3 border-b border-gray-700">Email</th>
+                <th class="px-4 py-3 border-b border-gray-700">Trạng thái</th>
+                <th class="px-4 py-3 border-b border-gray-700 text-center">Hành động</th>
+            </tr>
+            </thead>
+            <tbody class="text-gray-200">
+            <tr class="hover:bg-gray-800/50 transition">
+                <td class="px-4 py-3 border-b border-gray-700">1</td>
+                <td class="px-4 py-3 border-b border-gray-700 font-medium text-indigo-300">DR-1001</td>
+                <td class="px-4 py-3 border-b border-gray-700">Nguyễn Văn A</td>
+                <td class="px-4 py-3 border-b border-gray-700">Tim mạch</td>
+                <td class="px-4 py-3 border-b border-gray-700">vana@hospital.vn</td>
+                <td class="px-4 py-3 border-b border-gray-700">
+                    <span class="px-2 py-1 bg-green-700/40 text-green-300 rounded-full text-xs font-semibold">Hoạt động</span>
+                </td>
+                <td class="px-4 py-3 border-b border-gray-700 text-center">
+                    <div class="flex justify-center gap-2">
+                        <button class="px-3 py-1 bg-blue-600 hover:bg-blue-700 rounded-lg text-sm text-white">Xem</button>
+                        <button class="px-3 py-1 bg-yellow-600 hover:bg-yellow-700 rounded-lg text-sm text-white">Sửa</button>
+                        <button class="px-3 py-1 bg-red-600 hover:bg-red-700 rounded-lg text-sm text-white">Khóa</button>
+                    </div>
+                </td>
+            </tr>
+            <!-- Thêm các dòng khác tương tự -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Phân trang -->
+    <div class="flex justify-between items-center mt-6 text-gray-400 text-sm">
+        <p>Hiển thị <span class="text-indigo-400">1–10</span> trên tổng số <span class="text-indigo-400">47</span> bác sĩ</p>
+        <div class="flex items-center gap-2">
+            <button class="px-3 py-1 bg-gray-800 rounded-lg hover:bg-gray-700">&laquo;</button>
+            <button class="px-3 py-1 bg-indigo-600 rounded-lg text-white">1</button>
+            <button class="px-3 py-1 bg-gray-800 rounded-lg hover:bg-gray-700">2</button>
+            <button class="px-3 py-1 bg-gray-800 rounded-lg hover:bg-gray-700">3</button>
+            <button class="px-3 py-1 bg-gray-800 rounded-lg hover:bg-gray-700">&raquo;</button>
+        </div>
+    </div>
+</section>

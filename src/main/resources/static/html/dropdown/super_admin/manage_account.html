@@ -1,0 +1,88 @@
+<section id="section-super-admin-manages-account" class="p-6 bg-gray-900 min-h-screen text-gray-100">
+    <div class="max-w-7xl mx-auto bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-700">
+        <!-- Header -->
+        <div class="flex items-center justify-between mb-6">
+            <h2 class="text-2xl font-semibold text-indigo-400">Quản lý tài khoản người dùng</h2>
+            <div class="flex items-center gap-3">
+                <button id="btn-add-account"
+                        class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 rounded-xl text-white font-medium">
+                    + Tạo tài khoản mới
+                </button>
+                <button id="btn-super-dropdown-back"
+                        class="px-4 py-2 bg-orange-600 hover:bg-orange-700 rounded-xl text-white font-medium">
+                    Quay lại
+                </button>
+            </div>
+        </div>
+
+        <!-- Bộ lọc và tìm kiếm -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+            <input
+                    id="search-account"
+                    type="text"
+                    placeholder="🔍 Tìm kiếm theo tên hoặc email..."
+                    class="col-span-2 bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-gray-200 placeholder-gray-400 focus:ring-2 focus:ring-indigo-500 outline-none"
+            />
+
+            <select id="filter-role"
+                    class="bg-gray-700 border border-gray-600 rounded-lg px-3 py-2 text-gray-200 focus:ring-2 focus:ring-indigo-500">
+                <option value="">-- Vai trò --</option>
+                <option value="PATIENT">Bệnh nhân</option>
+                <option value="DOCTOR">Bác sĩ</option>
+                <option value="ADMIN">Quản trị viên</option>
+                <option value="SUPER_ADMIN">Super Admin</option>
+            </select>
+
+            <select id="filter-status"
+                    class="bg-gray-700 border border-gray-600 rounded-lg px-3 py-2 text-gray-200 focus:ring-2 focus:ring-indigo-500">
+                <option value="">-- Trạng thái --</option>
+                <option value="true">Đang hoạt động</option>
+                <option value="false">Bị khóa</option>
+            </select>
+        </div>
+
+        <!-- Bảng danh sách tài khoản -->
+        <div class="overflow-x-auto rounded-lg border border-gray-700">
+            <table class="w-full text-left">
+                <thead class="bg-gray-700 text-gray-300 text-sm">
+                <tr>
+                    <th class="py-3 px-4">#</th>
+                    <th class="py-3 px-4">Họ và Tên</th>
+                    <th class="py-3 px-4">Email</th>
+                    <th class="py-3 px-4">Vai trò</th>
+                    <th class="py-3 px-4">Trạng thái</th>
+                    <th class="py-3 px-4 text-center">Thao tác</th>
+                </tr>
+                </thead>
+                <tbody id="table-account-list" class="divide-y divide-gray-700">
+                <tr class="hover:bg-gray-700/40">
+                    <td class="py-3 px-4">1</td>
+                    <td class="py-3 px-4">Nguyễn Văn A</td>
+                    <td class="py-3 px-4">vana@example.com</td>
+                    <td class="py-3 px-4">Bác sĩ</td>
+                    <td class="py-3 px-4 text-green-400">Hoạt động</td>
+                    <td class="py-3 px-4 text-center space-x-2">
+                        <button class="px-3 py-1 text-sm bg-blue-600 hover:bg-blue-700 rounded-lg text-white">Xem
+                        </button>
+                        <button class="px-3 py-1 text-sm bg-yellow-600 hover:bg-yellow-700 rounded-lg text-white">Khóa
+                        </button>
+                        <button class="px-3 py-1 text-sm bg-red-600 hover:bg-red-700 rounded-lg text-white">Xóa</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Pagination -->
+        <div class="flex items-center justify-between mt-6 text-sm text-gray-400">
+            <p>Hiển thị 1–10 trong tổng số 124 tài khoản</p>
+            <div class="flex space-x-2">
+                <button class="px-3 py-1 border border-gray-600 rounded-lg hover:bg-gray-700">&laquo;</button>
+                <button class="px-3 py-1 border border-indigo-600 bg-indigo-600 text-white rounded-lg">1</button>
+                <button class="px-3 py-1 border border-gray-600 rounded-lg hover:bg-gray-700">2</button>
+                <button class="px-3 py-1 border border-gray-600 rounded-lg hover:bg-gray-700">3</button>
+                <button class="px-3 py-1 border border-gray-600 rounded-lg hover:bg-gray-700">&raquo;</button>
+            </div>
+        </div>
+    </div>
+</section>

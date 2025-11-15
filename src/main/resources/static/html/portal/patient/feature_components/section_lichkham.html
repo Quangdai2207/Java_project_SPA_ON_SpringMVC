@@ -1,0 +1,67 @@
+<section id="section-lichkham" class="col-span-3 bg-gray-900 rounded-2xl border border-gray-800 shadow-md p-6">
+    <!-- Header -->
+    <div class="flex justify-between items-center mb-6">
+        <h2 class="text-xl font-semibold text-indigo-400">🩺 Lịch khám của bạn</h2>
+
+        <div class="flex items-center gap-3">
+            <select class="bg-gray-800 text-gray-300 rounded-lg px-3 py-2 text-sm border border-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                <option>Tuần này</option>
+                <option>Tháng này</option>
+                <option>Tất cả</option>
+            </select>
+            <button class="px-4 py-2 text-sm rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-medium transition">
+                + Đặt lịch mới
+            </button>
+        </div>
+    </div>
+
+    <!-- Appointment List -->
+    <div class="space-y-4">
+        <!-- Card 1 -->
+        <div class="p-5 bg-gray-800 rounded-xl flex flex-col md:flex-row justify-between items-start md:items-center border border-gray-700 hover:border-indigo-500 transition">
+            <div>
+                <h3 class="text-lg font-semibold text-gray-100">Khám nội tổng quát</h3>
+                <p class="text-sm text-gray-400 mt-1">👨‍⚕️ Bác sĩ: <span class="text-gray-300">Nguyễn Văn A</span></p>
+                <p class="text-sm text-gray-400">🕒 09:00 - 10:00, 05/11/2025 | 📍 Phòng 302, Khoa Nội tổng quát</p>
+            </div>
+            <div class="flex items-center gap-3 mt-3 md:mt-0">
+                <span class="text-xs px-3 py-1 rounded-full bg-green-600 text-white">Sắp diễn ra</span>
+                <button class="text-sm px-3 py-1 rounded-lg bg-gray-700 hover:bg-gray-600 text-gray-300 transition">
+                    Xem
+                </button>
+                <button class="text-sm px-3 py-1 rounded-lg bg-red-600 hover:bg-red-700 text-white transition">Huỷ
+                </button>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="p-5 bg-gray-800 rounded-xl flex flex-col md:flex-row justify-between items-start md:items-center border border-gray-700 hover:border-indigo-500 transition">
+            <div>
+                <h3 class="text-lg font-semibold text-gray-100">Khám tai mũi họng</h3>
+                <p class="text-sm text-gray-400 mt-1">👩‍⚕️ Bác sĩ: <span class="text-gray-300">Lê Thị B</span></p>
+                <p class="text-sm text-gray-400">🕒 14:30 - 15:00, 10/11/2025 | 📍 Phòng 204, Khoa Tai Mũi Họng</p>
+            </div>
+            <div class="flex items-center gap-3 mt-3 md:mt-0">
+                <span class="text-xs px-3 py-1 rounded-full bg-gray-700 text-gray-300">Đã đặt</span>
+                <button class="text-sm px-3 py-1 rounded-lg bg-gray-700 hover:bg-gray-600 text-gray-300 transition">
+                    Xem
+                </button>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="p-5 bg-gray-800 rounded-xl flex flex-col md:flex-row justify-between items-start md:items-center border border-gray-700 hover:border-indigo-500 transition">
+            <div>
+                <h3 class="text-lg font-semibold text-gray-100">Khám da liễu</h3>
+                <p class="text-sm text-gray-400 mt-1">👨‍⚕️ Bác sĩ: <span class="text-gray-300">Trần Đức C</span></p>
+                <p class="text-sm text-gray-400">🕒 08:00 - 08:30, 02/11/2025 | 📍 Phòng 112, Khoa Da liễu</p>
+            </div>
+            <div class="flex items-center gap-3 mt-3 md:mt-0">
+                <span class="text-xs px-3 py-1 rounded-full bg-gray-700 text-gray-300">Đã khám</span>
+                <button class="text-sm px-3 py-1 rounded-lg bg-gray-700 hover:bg-gray-600 text-gray-300 transition">Xem
+                    kết quả
+                </button>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,108 @@
+<section id="portal-doctor-schedule" class="bg-gray-950 text-gray-100 rounded-2xl shadow-lg">
+    <!-- HEADER -->
+    <div class="flex flex-col md:flex-row md:items-center justify-between mb-6 gap-4">
+        <h2 class="text-xl font-semibold text-blue-400 flex items-center gap-2">
+            <i class="fas fa-calendar-alt text-blue-400"></i> Lịch khám
+        </h2>
+
+        <!-- FILTER & SEARCH -->
+        <div class="flex flex-wrap items-center gap-2 text-xs">
+            <select id="scheduleFilter" class="bg-gray-800 px-3 py-1.5 rounded-lg focus:ring-2 focus:ring-blue-500 border border-gray-700">
+                <option value="all">Tất cả</option>
+                <option value="pending">Chờ duyệt</option>
+                <option value="approved">Đã duyệt</option>
+                <option value="completed">Đã khám</option>
+                <option value="cancelled">Đã hủy</option>
+            </select>
+
+            <input type="date" id="scheduleDate" class="bg-gray-800 px-3 py-1.5 rounded-lg focus:ring-2 focus:ring-blue-500 border border-gray-700"/>
+
+            <div class="relative">
+                <input type="text" placeholder="Tìm bệnh nhân..." class="bg-gray-800 pl-8 pr-3 py-1.5 rounded-lg focus:ring-2 focus:ring-blue-500 border border-gray-700 text-xs">
+                <i class="fas fa-search absolute left-2 top-2.5 text-gray-400 text-[10px]"></i>
+            </div>
+
+            <button class="bg-blue-600 hover:bg-blue-500 px-3 py-1.5 rounded-lg flex items-center gap-1.5 text-xs font-medium">
+                <i class="fas fa-sync-alt text-[10px]"></i> Làm mới
+            </button>
+        </div>
+    </div>
+
+    <!-- SCHEDULE LIST -->
+    <div class="bg-gray-800 rounded-2xl shadow border border-gray-700 overflow-hidden">
+        <div class="flex justify-between items-center px-4 py-3 border-b border-gray-700">
+            <button class="bg-blue-700 hover:bg-blue-600 px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1">
+                <i class="fas fa-file-export text-[10px]"></i> PDF
+            </button>
+        </div>
+
+        <div class="overflow-x-auto">
+            <table class="min-w-full text-xs text-left">
+                <thead class="bg-gray-700 text-gray-300 uppercase text-[10px]">
+                <tr>
+                    <th class="px-4 py-2 font-semibold">Mã lịch</th>
+                    <th class="px-4 py-2 font-semibold">Bệnh nhân</th>
+                    <th class="px-4 py-2 font-semibold">Thời gian</th>
+                    <th class="px-4 py-2 font-semibold">Triệu chứng</th>
+                    <th class="px-4 py-2 font-semibold">Trạng thái</th>
+                    <th class="px-4 py-2 text-center font-semibold">Hành động</th>
+                </tr>
+                </thead>
+
+                <tbody class="divide-y divide-gray-700 text-[11px]">
+                <!-- PENDING -->
+                <tr class="hover:bg-gray-700/40 transition">
+                    <td class="px-4 py-2 text-gray-300">#SCH-20251102-01</td>
+                    <td class="px-4 py-2 font-medium text-blue-400">Nguyễn Văn A</td>
+                    <td class="px-4 py-2">02/11/2025 - 09:00</td>
+                    <td class="px-4 py-2 text-gray-400">Sốt, đau đầu, mệt mỏi</td>
+                    <td class="px-4 py-2">
+                        <span class="bg-yellow-700/40 text-yellow-400 px-2 py-0.5 rounded-full text-[10px] font-semibold">Chờ duyệt</span>
+                    </td>
+                    <td class="px-4 py-2 text-center">
+                        <div class="flex justify-end gap-1.5">
+                            <button class="bg-green-700 hover:bg-green-600 px-2 py-1 rounded text-[10px] font-medium">Duyệt</button>
+                            <button class="bg-red-700 hover:bg-red-600 px-2 py-1 rounded text-[10px] font-medium">Từ chối</button>
+                            <button class="bg-gray-700 hover:bg-gray-600 px-2 py-1 rounded text-[10px] font-medium">Chi tiết</button>
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- APPROVED -->
+                <tr class="hover:bg-gray-700/40 transition">
+                    <td class="px-4 py-2 text-gray-300">#SCH-20251102-02</td>
+                    <td class="px-4 py-2 font-medium text-blue-400">Trần Thị B</td>
+                    <td class="px-4 py-2">02/11/2025 - 10:30</td>
+                    <td class="px-4 py-2 text-gray-400">Khó thở nhẹ</td>
+                    <td class="px-4 py-2">
+                        <span class="bg-green-700/40 text-green-400 px-2 py-0.5 rounded-full text-[10px] font-semibold">Đã duyệt</span>
+                    </td>
+                    <td class="px-4 py-2 text-center">
+                        <div class="flex justify-end gap-1.5">
+                            <button class="bg-blue-700 hover:bg-blue-600 px-2 py-1 rounded text-[10px] font-medium">Bắt đầu khám</button>
+                            <button class="bg-gray-700 hover:bg-gray-600 px-2 py-1 rounded text-[10px] font-medium">Chi tiết</button>
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- COMPLETED -->
+                <tr class="hover:bg-gray-700/40 transition">
+                    <td class="px-4 py-2 text-gray-300">#SCH-20251102-03</td>
+                    <td class="px-4 py-2 font-medium text-blue-400">Phạm Văn C</td>
+                    <td class="px-4 py-2">01/11/2025 - 08:30</td>
+                    <td class="px-4 py-2 text-gray-400">Đau họng, ho khan</td>
+                    <td class="px-4 py-2">
+                        <span class="bg-cyan-700/40 text-cyan-400 px-2 py-0.5 rounded-full text-[10px] font-semibold">Đã khám</span>
+                    </td>
+                    <td class="px-4 py-2 text-center">
+                        <div class="flex justify-end gap-1.5">
+                            <button class="bg-purple-700 hover:bg-purple-600 px-2 py-1 rounded text-[10px] font-medium">Hồ sơ</button>
+                            <button class="bg-green-700 hover:bg-green-600 px-2 py-1 rounded text-[10px] font-medium">Kết quả</button>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

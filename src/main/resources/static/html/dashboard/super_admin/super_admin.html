@@ -1,0 +1,42 @@
+<div id="super-admin-dashboard" class="min-h-screen bg-gray-950 text-gray-100">
+    <!-- HEADER -->
+    <header class="bg-gray-900 border-b border-gray-800 px-6 py-4 flex justify-between items-center">
+        <h1 class="text-2xl font-semibold text-indigo-400">🛠️ Super Admin Control Panel</h1>
+        <div class="flex items-center space-x-4">
+            <span class="text-sm text-gray-300">Hi, <b id="super-admin-username"></b></span>
+            <a href="/auth/logout"
+               class="bg-red-600 hover:bg-red-500 text-white px-4 py-2 rounded-lg text-sm font-medium">Đăng xuất</a>
+        </div>
+    </header>
+
+    <!-- MAIN LAYOUT -->
+    <main class="grid grid-cols-1 md:grid-cols-5 gap-6 pt-6">
+        <!-- SIDEBAR -->
+        <aside class="col-span-1 bg-gray-900 rounded-2xl border border-gray-800 shadow-lg p-4 space-y-3">
+            <nav class="space-y-2">
+                <button id="super-btn-mainpage"
+                        class="w-full text-left px-3 py-2 cursor-pointer bg-indigo-600 text-white rounded-lg font-medium">Tổng quan
+                </button>
+                <button id="super-btn-manage-account" class="w-full cursor-pointer text-left px-3 py-2 hover:bg-gray-800 rounded-lg">
+                    Quản lý tài khoản
+                </button>
+                <button id="super-btn-manage-hospital" class="w-full cursor-pointer text-left px-3 py-2 hover:bg-gray-800 rounded-lg">
+                    Quản lý bệnh viện
+                </button>
+                <button id="super-btn-manage-doctor" class="w-full cursor-pointer text-left px-3 py-2 hover:bg-gray-800 rounded-lg">
+                    Quản lý bác sĩ
+                </button>
+                <button id="super-btn-log-system" class="w-full cursor-pointer text-left px-3 py-2 hover:bg-gray-800 rounded-lg">Nhật
+                    ký & Log hệ thống
+                </button>
+                <button id="super-btn-system-config" class="w-full cursor-pointer text-left px-3 py-2 hover:bg-gray-800 rounded-lg">Cấu
+                    hình hệ thống
+                </button>
+            </nav>
+        </aside>
+        <div id="super-admin-dashboard-main-content"
+             class="col-span-4 space-y-6 overflow-y-auto bg-gray-950 rounded-2xl">
+            <!-- ** Them cac sections tinh nang cua super admin tai day-->
+        </div>
+    </main>
+</div>
