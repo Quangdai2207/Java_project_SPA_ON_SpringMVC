@@ -11,6 +11,7 @@ export const SUPER_DASHBOARD = () => {
         url: "/super-admin/render-super-admin-page",
         success: function (res) {
             const {metadata, email, roles} = res;
+
             // ** Render DOM trang quản lý Admin Dashboard từ file html
             const dashboard = "/html/dashboard/super_admin/super_admin.html"
             $.get(dashboard)

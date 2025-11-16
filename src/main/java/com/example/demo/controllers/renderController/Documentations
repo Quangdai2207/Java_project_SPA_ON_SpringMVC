@@ -1,0 +1,27 @@
+Tai lieu huong dan Package controllers/renderController
+
+1. RenderController la sub-package cua package chinh controllers.
+2. RenderController co nhiem vu tra ve du lieu la Metadata khi lan dau render UI cho cho nguoi dung
+3. Class HomeRender la Class Render HomePage. HomePage duoc render theo tung Role cu the khi nguoi dung truy cap
+   vao ung dung Web. Trong do:
+        a. Neu Nguoi dung chua dang nhap, HomePage duoc Render cho nguoi dung voi Role "ROLE_GUEST"
+        b. Neu Nguoi dung dang nhap voi ROLE PATIENT, HomePage duoc Render cho nguoi dung voi Role "ROLE_PATIENT"
+        c. Neu Nguoi dung dang nhap voi ROLE DOCTOR, HomePage duoc Render cho nguoi dung voi Role "ROLE_DOCTOR"
+        d. Neu Nguoi dung dang nhap voi ROLE ADMIN, HomePage duoc Render cho nguoi dung voi Role "ROLE_ADMIN"
+        e. Neu Nguoi dung dang nhap voi ROLE SUPER ADMIN, HomePage duoc Render cho nguoi dung voi Role "ROLE_SUPER_ADMIN"
+
+4. Voi Moi Role cu the, HomePage Render UI voi Role tuong ung do dong thoi di kem voi du lieu Metadata cho UI
+   HomePage tuong ung do.
+5. Tai cac packages nhu:
+        a. admin
+        b. bookings
+        c. doctor
+        d. patient
+        e. super_admin
+
+        Day la cac package chua cac class render page html khi lan dau truy cap vao he thong ung dung website.
+        Khi nguoi dung dang nhap va xac thuc quyen vao he thong thi Page tuong ung voi Role do duoc render cho nguoi
+        dung.
+
+        Khac voi HomeRender, HomeRender la HomePage render UI the tung Role cu the
+        Cac package tai muc 5 nay la tuong duong voi Page UI cua tung Role cu the.

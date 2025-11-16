@@ -1,7 +1,7 @@
 export default function fetchAccountsByFaculty() {
     $.ajax({
         type: "GET",
-        url: "/patient/api/faculties",
+        url: "/patient/api/v1/faculties",
         success: function (data) {
             if (data.status === "OK" || data !== null) {
                 const faculties = data.faculties;
@@ -36,7 +36,7 @@ function fetchDoctors(facultyID) {
 
     $.ajax({
         type: "GET",
-        url: `/patient/api/doctor?faculty=${facultyID}`,
+        url: `/patient/api/v1/doctor?faculty=${facultyID}`,
         success: function (data) {
             if (data.status === "OK" && data.doctors.length > 0) {
                 const doctors = data.doctors;

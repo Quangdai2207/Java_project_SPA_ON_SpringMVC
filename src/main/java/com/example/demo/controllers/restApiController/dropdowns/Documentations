@@ -1,0 +1,9 @@
+Tai lieu huong dan Package controllers/restApiController/dropdowns
+
+Trong package controllers/restApiController/dropdowns la noi chua cac routes du lieu tra ve cho ajax.
+
+Cac route du lieu trong package dropdown duoc bat dau bang tien to tuong ung voi cac Role trong he thong ung dung Website
+ Role patient       http://localhost:9090/api/v1/patient/**
+ Role doctor:       http://localhost:9090/api/v1/doctor/**
+ Role admin:        http://localhost:9090/api/v1/admin/**
+ Role super-        admin: http://localhost:9090/api/v1/super-admin/**

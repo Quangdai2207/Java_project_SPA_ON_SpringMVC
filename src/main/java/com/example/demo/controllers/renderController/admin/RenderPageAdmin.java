@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController("adminPageRender")
+@RestController("AdminPageRender")
 @RequestMapping("/admin")
 public class RenderPageAdmin {
     @Autowired

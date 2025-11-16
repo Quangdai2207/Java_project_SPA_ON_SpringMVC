@@ -13,9 +13,23 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Trang home chung cho tat ca cac role gom co du lieu chung, trong do:
- *     Footer: lay du lieu thong tin cua hen thong, tu khoa, he thong benh vien/phong kham va cac chi nhanh benh vien
- *     homePage cho tung role: lay du lieu cua Role lien quan cho Home Page.
+ * <div style="color: white; border: 1px solid white; padding:10px">
+ *     <h1>RenderControllers</h1>
+ *     <p>
+ *         <strong>Trong do:</strong>
+ *         <ul>
+ *             <li>
+ *                  <strong>Trang home</strong> chung cho tat ca cac role gom co du lieu chung.
+ *             </li>
+ *             <li>
+ *                  <strong>Footer</strong> lay du lieu thong tin cua he thong, tu khoa, he thong benh vien/phong kham va cac chi nhanh benh vien
+ *             </li>
+ *             <li>
+ *                 <strong>homePage cho tung role:</strong> lay du lieu cua Role lien quan cho Home Page.
+ *             </li>
+ *         </ul>
+ *     </p>
+ * </div>
  * **/
 public class MetadataRender {
     public static ResponseEntity<?> metadata(
@@ -25,11 +39,11 @@ public class MetadataRender {
         //** Kiểm tra người dùng đã xác thực chưa:
         boolean isAuthenticated = authentication != null && authentication.isAuthenticated();
 
-        //** Lấy Email:
+        //** get Email:
         String email = null;
         if (isAuthenticated) email = authentication.getName();
 
-        //** Lấy Role
+        //** get Role
         var roles = isAuthenticated ?
                 authentication.getAuthorities().stream().map(GrantedAuthority::getAuthority).toList()
                 : List.of("ROLE_GUEST");

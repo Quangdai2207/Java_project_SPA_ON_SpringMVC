@@ -2,8 +2,6 @@ package com.example.demo.controllers.restApiController.account;
 
 import com.example.demo.DTOs.account.RequestCreateAccount;
 import com.example.demo.entities.*;
-import com.example.demo.helpers.address_helper.AddressHelper;
-import com.example.demo.helpers.extensions.CastingAccount;
 import com.example.demo.helpers.mappers.RegisterMapperAccount;
 import com.example.demo.services.account.AccountService;
 import com.example.demo.services.address.AddressService;
@@ -21,13 +19,12 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/v1/account")
+@RequestMapping("/account/api/v1")
 public class RestApiAccount {
     @Autowired
     private AccountService accountService;
@@ -40,8 +37,10 @@ public class RestApiAccount {
 
     @Autowired
     private RoleAccountService roleAccountService;
+
     @Autowired
     private PhoneService phoneService;
+
     @Autowired
     private AddressService addressService;
 

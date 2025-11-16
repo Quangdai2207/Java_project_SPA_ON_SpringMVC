@@ -1,4 +1,25 @@
-//** Lay Role nguoi dung the the Meta Thymeleaf
+/**
+ * <div style="color: white; border: 1px solid white; padding: 10px">
+ *     <h1>Web Socket xu ly su kien thoi gian thuc</h2>
+ *     <p>
+ *         <ul>
+ *             <li>
+ *                  Module websocket_connect.js la noi thuc thi cac su kien nguoi dung theo thoi gian thuc
+ *             </li>
+ *             <li>
+ *                  Websocket duoc thuc hien xu ly su kien va phan hoi su kien theo tung Role cu the.
+ *                  Voi cac Role cu the su kien se duoc server phan hoi theo Role tuong ung.
+ *             </li>
+ *             <li>
+ *                  Khi Client truy cap vao ung dung web, Client co the gui su kien ve cho Server theo bat ky
+ *                  route nao, nhung Nhan du lieu tu Server thi chi nhan duoc tai moi Role tuong ung
+ *             </li>
+ *         </ul>
+ *     </p>
+ * </div>
+ * **/
+
+// ** Lay Role nguoi dung the the Meta Thymeleaf
 const metaRole = $("meta[name='role']").attr("content") || "anonymous"
 const userRoleFormated = metaRole
     .replace("ROLE_", "")
@@ -110,6 +131,7 @@ function accountStatus(res) {
 }
 
 
+//** Function xu ly Form dang ky nguoi dung - Register Form
 function handleFormRegister(stomp) {
     $("#form-register").on("submit", function (e) {
         e.preventDefault();
@@ -125,7 +147,7 @@ function handleFormRegister(stomp) {
         console.log(data);
         $.ajax({
             type: "POST",
-            url: "/api/v1/account/register",
+            url: "/account/api/v1/register",
             contentType: "application/json",
             data: JSON.stringify(data),
             success: function (res) {

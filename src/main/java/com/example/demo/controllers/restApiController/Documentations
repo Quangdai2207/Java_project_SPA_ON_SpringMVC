@@ -1,0 +1,10 @@
+Tai lieu huong dan Package controllers/restApiController
+
+Trong package controllers/restApiController la noi chua cac routes du lieu tra ve cho ajax tai moi Page (sections) theo
+Role tuong ung
+
+Cac route du lieu trong package RestControllers duoc bat dau bang tien to tuong ung voi cac Role trong he thong ung dung Website
+Role patient       http://localhost:9090/patient/api/v1/**
+Role doctor:       http://localhost:9090/doctor/api/v1/**
+Role admin:        http://localhost:9090/admin/api/v1/**
+Role super-        admin: http://localhost:9090/super-admin/api/v1/**

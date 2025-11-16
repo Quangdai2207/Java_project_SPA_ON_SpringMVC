@@ -28,9 +28,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@RestController
+@RestController("patientDataDropdown")
 @RequestMapping("/api/v1/patient")
-public class RestApiContextPatient {
+public class RestApiPatientDropdown {
     @Autowired
     private AccountService accountService;
 

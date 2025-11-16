@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@RestController("BookingPageRender")
 @RequestMapping("/bookings")
 public class RenderBookingsPage {
     @GetMapping(value = "/render-bookings-page", produces = MimeTypeUtils.APPLICATION_JSON_VALUE)

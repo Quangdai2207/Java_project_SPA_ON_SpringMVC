@@ -20,8 +20,8 @@ import java.util.Map;
 
 // ** Route fetch data de render du lieu trong combox cho trang bookings khi nguoi dung chon faculti thi hien danh sach
 // ** bac si tuong ung.
-@RestController
-@RequestMapping("/patient/api")
+@RestController("PatientDataSection")
+@RequestMapping("/patient/api/v1")
 public class PatientRestApi {
     @Autowired
     private FacultyService facultyService;

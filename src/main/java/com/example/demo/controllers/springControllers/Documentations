@@ -1,0 +1,22 @@
+TAI LIEU HUONG DAN MUC DICH PACKAGE controllers/springControllers
+
+1. Package springControllers la sub-package cua Package chinh controllers
+2. Package springControllers la noi render cac trang UI truc tiep tu server phia Server thong qua cac phuong
+   thuc voi cac View tuong ung.
+3. Cac View duoc tra ve truc tiep tu Server gom cac views:
+        a. about            => Package about
+        b. admin            => Package admin
+        c. super-admin      => Package super_admin
+        d. doctor           => Package doctor
+        e. booking          => Package booking
+        f. patient          => Package patient
+        d. home             => Class Page ngoai cung
+
+
+        Moi Packages la mot page cu the duoc tra ve truc tiep tu server. Cac Page (view) duoc tra ve tu server
+        trong du an nay la cac Page rong, moi page chi co the DIV voi mot ID dai dien cho Page do.
+
+        Vi du an duoc thuc hien tren y tuong SPA theo logic cuca NextJS va React, nen cac Page chu yeu duoc render
+        bang AJAX trong Resource/js va Resource/html.
+
+        Du lieu render UI duoc thuc hien tai cac package RestApiController
